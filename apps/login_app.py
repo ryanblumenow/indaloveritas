@@ -2,6 +2,7 @@ import time
 from typing import Dict
 import streamlit as st
 from hydralit import HydraHeadApp
+from indalohome import indalohome
 
 
 class LoginApp(HydraHeadApp):
@@ -87,7 +88,8 @@ class LoginApp(HydraHeadApp):
                 self.set_access(form_data['access_level'], form_data['username'])
 
                 #Do the kick to the home page
-                self.do_redirect()
+                # self.do_redirect()
+                indalohome()
         else:
             self.session_state.allow_access = 0
             self.session_state.current_user = None
