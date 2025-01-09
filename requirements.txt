@@ -29,3 +29,4 @@ datetime
 python-pptx
 hydralit
 keyboard
+hotstepper
