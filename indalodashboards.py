@@ -34,7 +34,7 @@ import seaborn as sns
 from io import BytesIO
 from statsmodels.formula.api import ols
 # from streamlit.state.session_state import SessionState
-import tkinter
+# import tkinter
 import matplotlib
 # matplotlib.use('TkAgg') testing
 # matplotlib.use('Agg')
