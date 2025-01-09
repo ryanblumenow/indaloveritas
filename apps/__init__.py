@@ -1,7 +1,5 @@
 from apps.home_app import HomeApp
 from apps.login_app import LoginApp
-from apps.solar_mach import SolarMach
-from apps.spacy_nlp import SpacyNLP
 from apps.cheat_app import CheatApp
 from apps.myloading_app import MyLoadingApp
 from apps.signup import SignUpApp
