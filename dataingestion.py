@@ -1,6 +1,5 @@
 import pandas as pd
 import streamlit as st
-import pyodbc
 import numpy as np
 
 @st.cache_data
