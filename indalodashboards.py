@@ -72,7 +72,7 @@ from click_image_dashboards import st_click_image_dashboards
 from click_image_advanalytics import st_click_image_advanalytics
 from dtale.views import startup
 from streamlit_quill import st_quill
-import pandas_profiling
+# import pandas_profiling
 # from pandas_profiling import ProfileReport
 from ydata_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
