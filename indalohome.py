@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_carousel import carousel
 
 #add an import to Hydralit
 from hydralit import HydraHeadApp
