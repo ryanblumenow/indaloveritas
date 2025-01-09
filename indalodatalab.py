@@ -10,12 +10,10 @@ import streamlit.components.v1 as components
 import hydralit_components as hl
 import hydralit_components as hc
 import time
-from hladvanalytics import advanalytics
 from indalohome import indalohome
 import apps
 from streamlit_option_menu import option_menu
 from indalodashboards import indalodashboardshome
-from tigerlogin import tigerlogin
 from streamlit_extras.add_vertical_space import add_vertical_space
 
 if __name__ == '__main__':
