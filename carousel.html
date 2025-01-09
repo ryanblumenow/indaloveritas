@@ -1,0 +1,44 @@
+
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Slick Carousel</title>
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+                    <style>
+                        .quote-carousel {
+                            width: 80%;
+                            margin: auto;
+                            font-family: Georgia, serif;
+                            font-size: 16px;
+                            text-align: center;
+                            padding: 10px;
+                        }
+                        .quote-carousel div {
+                            padding: 20px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="quote-carousel">
+                        <div>Innovation distinguishes between a leader and a follower.</div><div>The best way to predict the future is to invent it.</div><div>Simplicity is the ultimate sophistication.</div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+                    <script>
+                        $(document).ready(function(){
+                            $('.quote-carousel').slick({
+                                dots: true,
+                                infinite: true,
+                                speed: 500,
+                                autoplay: true,
+                                autoplaySpeed: 3000,
+                                arrows: false
+                            });
+                        });
+                    </script>
+                </body>
+                </html>
+                

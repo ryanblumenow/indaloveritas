@@ -1,0 +1,869 @@
+2024-05-20 19:54:37 [INFO] Question: How many suppliers are there?
+
+2024-05-20 19:54:37 [INFO] Running PandasAI with openai LLM...
+2024-05-20 19:54:37 [INFO] Prompt ID: 43fb3d27-1e2f-4cb7-b44f-43f9274184f8
+2024-05-20 19:54:37 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-20 19:54:38 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-20 19:54:38 [INFO] Executing Step 1: CacheLookup
+2024-05-20 19:54:38 [INFO] Executing Step 2: PromptGeneration
+2024-05-20 19:54:38 [INFO] Using prompt: <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+IRROC BAG MANUFACTURERS (PTY) LTD,OPSTROP ENGINEERING PROJECTS,TRI135,Tiger Weigh,Company (Pty) Ltd,2009/021284/07,N,,6.0,GENERIC,,37.45,11.23,39.39,N,,H,8.0,2022/12/08 00:00:00,25-SEP-2019,4939550058,N,N,Y,N,Imex International,NATIONAL,2013-02-08 00:00:00,P O Box 536,,Honeydew,Branston,Phillipines,2500,,,TH,+968,451 4817,N,Y,20-DEC-2013,,KES,0745895995,,,Y,UNCLAIMABLE VAT,Y,D,25-900-999-95-8601-0000,,Labour Broker,Yes,W H WILLIAMS & SONS CC,RISK ASSESSMENT EXP 2021-11-01,3127265210,Checklist completed,,0120588540,Current,HULL VERVOER,Y,FNB - The Crescent,011245,INR,,,2007-09-20,Correspondence,N T,JACO,,7690115185,,,,,,0.0,1.0,
+PREFERRED PERSONNEL AFRICA LIMITED,,WAG100,Rebates,Partnership,,,2023/08/04 00:00:00,,,GENERIC,26%,1.00%,31.01,Y,Y,,1.0,,11-APR-2022,5051071470,,Y,Y,N,TMS Operations,ENT GERM1740506,,Moorreesburg,Brackenhill Indusrial Park,,Shallcross,,258,KENYA,Vincent,,,,,,13-JUN-2013,CAD,,0785170106,EMAIL,adminsa@hygrotech.co.za,,,N,N,25-900-999-95-8601-9015,LIM,,,,,1540660924,No checklist required,ZA2556141,8078974354,Current,Hloni Lebeko,N,Nedbank - Bryanston,301305,CHF,GB67NWBK60000190360109,1000,,Correspondence,AJH,SHEILA ,MRS,3570451910,78.0,3353641,stellenbosch@h2o.co.za,314 5333,041,,,0.0
+SR Ganasen,JJ van der Westhuizen,MOT019,,,2016/035125/07,Y,2010/09/30 00:00:00,9.0,EME,EME,,,,,N,A,,2023/08/25 00:00:00,,5078634875,N,Y,N,N,MF Max Frank (F90),,2022-11-02 18:16:47,,P.O.Box 1353,PRIMROSE,,Durban,,Wester Cape,MIDRAND,TG,079,724 8538,Y,N,,HKD,NZD,8411298843,PRINTED,"johans@bulkop.co.za,chante.osmers@tigerbrands.com",L,EXEMPT VAT,,,03-330-999-95-8601-9090,EC,Motor Vehicle Expenses,No,NETCARE 911 (PTY) LTD - MAIN ACCOUNT,Control Union EXP 2024-08-11,3056381376,,C02216,3603924620,,Christian Swanepoel,N,Nedbank-Flora Centre Florida,,,CZ6703001712800017231913,5.000,2011-09-20,,,,Mr,8860665085,28.0,0824165553,eugene@bridgepersonnel.co.za,646 9295,013,1.0,0.0,1.0
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many suppliers are there?
+
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-20 19:54:38 [INFO] Executing Step 3: CodeGenerator
+2024-05-20 19:54:38 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-05-20 19:54:38 [INFO] Retrying request to /chat/completions in 0.873931 seconds
+2024-05-20 19:54:40 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-05-20 19:54:40 [INFO] Retrying request to /chat/completions in 1.742484 seconds
+2024-05-20 19:54:42 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-05-20 19:54:42 [ERROR] Pipeline failed on step 3: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2024-05-20 19:58:12 [INFO] Question: How many suppliers are there?
+2024-05-20 19:58:12 [INFO] Running PandasAI with openai LLM...
+2024-05-20 19:58:12 [INFO] Prompt ID: 82110d90-158a-44c6-a428-aec20eb63b97
+2024-05-20 19:58:12 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-20 19:58:13 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-20 19:58:13 [INFO] Executing Step 1: CacheLookup
+2024-05-20 19:58:13 [INFO] Executing Step 2: PromptGeneration
+2024-05-20 19:58:13 [INFO] Using prompt: <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+"Levi, Mr. Yitzchak",Pick 'n Pay Hazelpark,SPX001,Transport,Company (Pty) Ltd,1990/005197/07,Y,,3.0,EME,,51%,23.80,31.94,,Y,Z,5.0,2022/10/03 00:00:00,25-NOV-2014,,N,N,N,N,TB Foundation Trust,BULK-SHIP,2022-11-02 18:04:25,Potcheftroom Industria Area,32 Swartberg Road,,Centurion,Parow East,9640,,FOURWAYS,CH,,,,N,20-DEC-2013,AUD,GBP,4389961100,EMAIL,emqug9q3lwft@protonmail.com,Y,ZERO RATED VAT,N,U,06-900-999-95-8601-9175,NW,Outsourced,,Gerrit Maritz Attorneys,ILGAP EXP 2014-11-13,1487381191,Checklist completed,,0503658067,Current,Swift Silliker (Pty) Ltd,N,Std Bank - Jet Park,,EUR,GB40ABNA40503040187314,47000,2010-07-05,,ANNE ,,,0710707678,82.0,4399960146,erd7u0k--@gmail.com,8692789,022,,0.0,
+Prime Stars Marketing (Pty) Ltd,,PRI002,Trust,Other,,N,2015/05/17 00:00:00,,GENERIC,EME,26.73,,,Y,N,Y,4.0,,21-JAN-2020,4310242203,,Y,Y,N,CUL Culinary National,,,Golden Walk,Fairways Business Park,Stikland Industrial,KARENPARK,,,KWAZULU MATAL,,,+44 1934,486 1518,N,Y,13-JUN-2013,,,7659261034,,kvnk0h5@aol.com,L,EXEMPT VAT,Y,,41-900-999-90-8001-0000,FS,Beverage Engineering,Yes,,GLOBALGAP  EXP 2013-12-09,7194425291,,ZA2559011,5345518664,Current,Shalkim Manufacturing CC,N,FNB - Potchefstroom,000000,,DE51614400860100901800,,2010-11-10,Correspondence,ETIENNE,Angela,Mr,4991741899,,1738781424,rru_9jdb3@yahoo.com,252 1669,,0.0,,1.0
+DISCOUNT FOODS CC T/A JEPPE,T/A PEDROS FLAME GRILLED CHICKEN,WAY003,,,7907235351086,,2014/08/26 00:00:00,1.0,,QSE,,9.68,44,N,,,,2022/08/19 00:00:00,,4880255809,N,N,Y,N,TM Hennenman Mill (35M),ALBANY 2,2013-08-05 17:12:39,,,OBSERVATORY,,IRELAND,0241,CANADA,HAMBURG,AR,+1630,85324590,Y,,,USD,JPY,6679690453,PRINTED,nkaaa4@yahoo.com,,,,D,03-330-999-95-8601-9080,,,No,ROOM 13 ART CENTRE,,7422034905,No checklist required,HERCULES FOODS,7486816951,,Monzel Boerdery,Y,FNB - Kosi Bay,220226,INR,,160000,,Correspondence,,HATTINGH,MRS,3045019199,562.0,5222372806,b2wpopftcnye@icloud.com,,023,1.0,1.0,0.0
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many suppliers are there?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-20 19:58:13 [INFO] Executing Step 3: CodeGenerator
+2024-05-20 19:58:14 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-05-20 19:58:14 [INFO] Retrying request to /chat/completions in 0.967767 seconds
+2024-05-20 19:58:15 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-05-20 19:58:15 [INFO] Retrying request to /chat/completions in 1.911843 seconds
+2024-05-20 19:58:17 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-05-20 19:58:17 [ERROR] Pipeline failed on step 3: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2024-05-20 20:01:53 [INFO] Question: How many suppliers are there?
+2024-05-20 20:01:53 [INFO] Running PandasAI with openai LLM...
+2024-05-20 20:01:53 [INFO] Prompt ID: bd2f6c66-99d3-448e-b31d-3f6837b4c014
+2024-05-20 20:01:53 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-20 20:01:54 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-20 20:01:54 [INFO] Executing Step 1: CacheLookup
+2024-05-20 20:01:54 [INFO] Executing Step 2: PromptGeneration
+2024-05-20 20:01:54 [INFO] Using prompt: <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+JITRAN ELECTRICAL SERVICES,T/A Deon's Cuisine Services,WBV047,Municipalities,Company (Pty) Ltd,9523037011,N,2018/05/29 00:27:18,5.0,EME,Generic,,,32.42,Y,,F,,2023/10/11 00:00:00,,,N,Y,Y,N,Adcock Intellectual Property,,,,"Constantia Crescent, Roodepoort",,Palmerston North,PAKISTAN,,GAUTENG,,DE,,4472074,N,Y,,HKD,,3051214674,PRINTED,pk7yrvmd@icloud.com,L,ZERO RATED VAT,N,N,48-900-999-95-8602-9175,EXP,,No,DP Manaso,NSF EXP 2023-01-26,,Yes,TIGER CONSUMER BRANDS LIMITED,220022429,,Beaulor Kahlu,Y,FNB-Strand,252645,TRY,GB98BOFS12110312119153,60000,2011-01-17,,,PREMRAJ,Mr.,6661432385,,2059826237,m0jg13yv@yahoo.com,3901133,,0.0,0.0,
+NDLOVU J N,,RET100,,,6028282887,,2013/02/15 00:00:00,,Generic,,36.38,25.10,45.30,N,Y,,3.0,2023/06/26 00:00:00,20-MAY-2019,4130232533,N,Y,N,N,CS Consumer National (A90),GOLDEN WALK,2009-06-17 00:00:00,Malmesbury,Steeldale,Belguim,,,2126,Western Valley,Southdale,,084,,,N,20-DEC-2013,,AUD,7505979216,,4b6ly_zidhb@yahoo.com,Y,Standard Vat,,U,48-900-999-95-8602-9266,LIM,Supplies,Yes,,,027/ILGAP/394/13,No checklist required,ZA2556141,1165945906,Current,Makankele Mabotja,N,Std Bank-Helderberg,,,,"337,000",2012-05-14,Correspondence,Magda,Pillay,MRS,7853529461,22.0,7914446750,rszlkh2c43g@gmail.com,9486411,083,1.0,,1.0
+Rouxman Machine Enterprises CC,Sipho Alex Mdluli,BEN020,Supplier,Closed Corporation (CC),5142452912,Y,,1.0,,GENERIC,21.63,12.06,,,N,C,8.0,,18-FEB-2015,4930293693,,N,N,N,"STB Snacks, Treats and Bev",ENTERPRISE A10,2014-08-20 14:07:37,Crown Nines,,UNITED ARAB EMIRATES,VRYKYK,Kent BR6 OPP,0017,,MKONDENI,TW,122,8404632,Y,,13-JUN-2013,INR,INR,4663992765,EMAIL,zwpwsj@yahoo.com,,,Y,,05-310-999-95-8601-9110,,IT,,Business Studies Unit Western Cape CC,GLOBALGAP EXP 2016-9-25,4056186972163,,,1948151227,Current,Botlhale Modise,N,Bank Of China Wenzhou,500902,KES,IT13T0200836671000030038269,,,Correspondence,Johannes,,,2281582767,83.0,3222904807,5l2mww56f2v@aol.com,,034963,,1.0,0.0
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many suppliers are there?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-20 20:01:54 [INFO] Executing Step 3: CodeGenerator
+2024-05-20 20:01:54 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-05-20 20:01:54 [INFO] Retrying request to /chat/completions in 0.793510 seconds
+2024-05-20 20:01:56 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-05-20 20:01:56 [INFO] Retrying request to /chat/completions in 1.746821 seconds
+2024-05-20 20:01:58 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2024-05-20 20:01:58 [ERROR] Pipeline failed on step 3: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2024-05-20 20:05:24 [INFO] Question: How many suppliers are there?
+2024-05-20 20:05:24 [INFO] Running PandasAI with openai LLM...
+2024-05-20 20:05:24 [INFO] Prompt ID: 58fea543-466b-4844-be06-cc55ee715f27
+2024-05-20 20:05:24 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-20 20:05:25 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-20 20:05:25 [INFO] Executing Step 1: CacheLookup
+2024-05-20 20:05:25 [INFO] Executing Step 2: PromptGeneration
+2024-05-20 20:05:25 [INFO] Using prompt: <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+UITKOMS NR 1 TESTAMENTERE TRUST MT 9130/95,T/A JABULA THEMBA TRANSFORMERS,EBR100,Supplier,Other,,Y,,3.0,GENERIC,,,,20.08,Y,Y,,8.0,2022/12/01 00:00:00,06-AUG-2010,3824617370,N,Y,Y,N,TB Foundation Trust,,2023-02-08 11:32:19,P O Box 654,,,,ONTARIO,,WP,,PH,+4122,5233000,N,N,20-DEC-2013,,,,PRINTED,b8pkj05n@zoho.com,N,EXEMPT VAT,,N,41-900-999-95-8601-9160,,Inter-Company,Yes,KH BEARING SUPPLIES CC,NSF EXP 2019-12-01,9690276081,No checklist required,,8308233582,,M R VILAKAZI,N,Nedbank - Giyani,,ZAR,TR400006400000213820000322,,2009-06-11,,,,Mr.,,72.0,2963939899,_2ih91@yahoo.com,4655301,+39081,1.0,1.0,0.0
+1a Imibala Orchards (Pty) Ltd,,REP015,Cashbook,,2000/037462/23,N,2011/01/17 00:27:18,,,EME,66.34,25.10,,N,,A,2.0,,,9945600152,N,Y,N,N,MF Max Frank (F90),N ATIONAL,,,"Avant-Garde Avenue, Newmarket Street",Polkadraaiweg,Marble Ray,,7530,,Mozambique,FR,+333,,Y,,,AUD,ZAR,4530141575,EMAIL,ct71i3pzfeb@icloud.com,Y,STANDARD VAT,N,U,02-900-999-95-8601-9100,KZN,,,,,4259896881,,C02216,4197957068,Current,Highveld Honey Farms ,N,Std Bank - Richards Bay,139828,EUR,GB71BARC20000060000086,160000,2008-07-22,Correspondence,Frikkie,CHRISTIANS,,0118807826,209.0,7880444929,amq93af8@icloud.com,474-3290,037,0.0,0.0,
+PICK N PAY F/STORE - HENDRINA         U2,Wirecom Network Connectivity,MCJ131,,Company (Pty) Ltd,9303280026088,,2021/12/08 00:00:00,4.0,QSE,Generic,100.00,3.5,34.23,,N,Z,,2023/10/13 00:00:00,17-SEP-2022,2849617702,,N,Y,N,Tiger Brands Ltd,DUIWELSKLOOF,2017-10-23 00:00:00,S.GIOVANNI IN M. (RN),P O BOX 12080,Leraatsfontein,"Jet Park, Boksburg",Menges,2170,KENYA,LORENTSVILLE,,,933-7501,,Y,13-JUN-2013,KES,BWP,4950109068,,m--2rqwoq9jw@hotmail.com,,,Y,,41-900-999-90-8001-0000,NW,Raw Material General,No,S BARNES,SGS Exp 2019-03-31,9980284737,Checklist completed,ZA2556141,7603333677,Current,KAYE S W,Y,FNB-Vredendal C P,50750501105,,,"80,000",,Correspondence,Tertia,LUTHULI,MRS,0117605019,,6762989405,ofmaehpgseq8@icloud.com,,,,,1.0
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many suppliers are there?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-20 20:05:25 [INFO] Executing Step 3: CodeGenerator
+2024-05-20 20:05:26 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-20 20:05:26 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+UITKOMS NR 1 TESTAMENTERE TRUST MT 9130/95,T/A JABULA THEMBA TRANSFORMERS,EBR100,Supplier,Other,,Y,,3.0,GENERIC,,,,20.08,Y,Y,,8.0,2022/12/01 00:00:00,06-AUG-2010,3824617370,N,Y,Y,N,TB Foundation Trust,,2023-02-08 11:32:19,P O Box 654,,,,ONTARIO,,WP,,PH,+4122,5233000,N,N,20-DEC-2013,,,,PRINTED,b8pkj05n@zoho.com,N,EXEMPT VAT,,N,41-900-999-95-8601-9160,,Inter-Company,Yes,KH BEARING SUPPLIES CC,NSF EXP 2019-12-01,9690276081,No checklist required,,8308233582,,M R VILAKAZI,N,Nedbank - Giyani,,ZAR,TR400006400000213820000322,,2009-06-11,,,,Mr.,,72.0,2963939899,_2ih91@yahoo.com,4655301,+39081,1.0,1.0,0.0
+1a Imibala Orchards (Pty) Ltd,,REP015,Cashbook,,2000/037462/23,N,2011/01/17 00:27:18,,,EME,66.34,25.10,,N,,A,2.0,,,9945600152,N,Y,N,N,MF Max Frank (F90),N ATIONAL,,,"Avant-Garde Avenue, Newmarket Street",Polkadraaiweg,Marble Ray,,7530,,Mozambique,FR,+333,,Y,,,AUD,ZAR,4530141575,EMAIL,ct71i3pzfeb@icloud.com,Y,STANDARD VAT,N,U,02-900-999-95-8601-9100,KZN,,,,,4259896881,,C02216,4197957068,Current,Highveld Honey Farms ,N,Std Bank - Richards Bay,139828,EUR,GB71BARC20000060000086,160000,2008-07-22,Correspondence,Frikkie,CHRISTIANS,,0118807826,209.0,7880444929,amq93af8@icloud.com,474-3290,037,0.0,0.0,
+PICK N PAY F/STORE - HENDRINA         U2,Wirecom Network Connectivity,MCJ131,,Company (Pty) Ltd,9303280026088,,2021/12/08 00:00:00,4.0,QSE,Generic,100.00,3.5,34.23,,N,Z,,2023/10/13 00:00:00,17-SEP-2022,2849617702,,N,Y,N,Tiger Brands Ltd,DUIWELSKLOOF,2017-10-23 00:00:00,S.GIOVANNI IN M. (RN),P O BOX 12080,Leraatsfontein,"Jet Park, Boksburg",Menges,2170,KENYA,LORENTSVILLE,,,933-7501,,Y,13-JUN-2013,KES,BWP,4950109068,,m--2rqwoq9jw@hotmail.com,,,Y,,41-900-999-90-8001-0000,NW,Raw Material General,No,S BARNES,SGS Exp 2019-03-31,9980284737,Checklist completed,ZA2556141,7603333677,Current,KAYE S W,Y,FNB-Vredendal C P,50750501105,,,"80,000",,Correspondence,Tertia,LUTHULI,MRS,0117605019,,6762989405,ofmaehpgseq8@icloud.com,,,,,1.0
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many suppliers are there?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-20 20:05:26 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+num_suppliers = len(dfs[0])
+
+# Declare result var
+result = { "type": "number", "value": num_suppliers }
+            ```
+            
+2024-05-20 20:05:26 [INFO] Executing Step 4: CachePopulation
+2024-05-20 20:05:26 [INFO] Executing Step 5: CodeCleaning
+2024-05-20 20:05:26 [INFO] 
+Code running:
+```
+num_suppliers = len(dfs[0])
+result = {'type': 'number', 'value': num_suppliers}
+        ```
+2024-05-20 20:05:26 [INFO] Executing Step 6: CodeExecution
+2024-05-20 20:05:26 [INFO] Executing Step 7: ResultValidation
+2024-05-20 20:05:26 [INFO] Answer: {'type': 'number', 'value': 79797}
+2024-05-20 20:05:26 [INFO] Executing Step 8: ResultParsing
+2024-05-20 20:05:46 [INFO] Question: Please graph the supplier types
+2024-05-20 20:05:46 [INFO] Running PandasAI with openai LLM...
+2024-05-20 20:05:46 [INFO] Prompt ID: 0f2bcc79-3e8a-4fc8-a5de-8edca29d1dc8
+2024-05-20 20:05:46 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-20 20:05:46 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-20 20:05:46 [INFO] Executing Step 1: CacheLookup
+2024-05-20 20:05:46 [INFO] Executing Step 2: PromptGeneration
+2024-05-20 20:05:46 [INFO] Using prompt: <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+"Mlangeni, Lesego Sannie",PETRONELLA GAGIANO,RTE001,,,1993/005561/07,,2019/07/05 00:00:00,4.0,EME,QSE,35.33,,31.94,Y,,,,2022/12/01 00:00:00,02-SEP-2014,,,Y,Y,N,ENT Enterprise Foods (E90),ENT GERM1319TVL,2022-11-02 17:51:28,,JOHANNESBURG,,,SA,1545,,,,,971 4558,,Y,,EUR,,,,"sarie.geldenhuys@tigerbrands.com, s.brink@saground.nutm.co.za",,Standard Vat,,N,41-758-999-90-8002-0000,NC,Outsourced,,Kaufman Levin Associates CC,NSF EXP 2019-12-01,0277872110,No checklist required,,4283665652,Current,zzzzL HEUNIS,Y,FNB-Woodstock  Cape Town,026009593,TRY,,MARITZBURG ENG.,,Correspondence,,De Wet Van Den,,313 5337,209.0,0791689537,,,0111,0.0,1.0,1.0
+HEART FOUNDATION,A J SWARTZ CONSTRUCTION,ELE002,Rebates,Company (Pty) Ltd,,N,2012/06/27 00:27:18,9.0,,EME,,.93,31.88,,Y,Z,9.0,,,4400111011,N,N,N,N,CS Consumer National (A90),,,33 Beechgate Crescent,FREE PRESS JOURNAL ROAD,Steenberg,Boston,Mozambique,,SECUNA,Hungary,GB,27 129,,Y,,20-DEC-2013,HKD,NAD,4440162362,EMAIL,,L,,N,,20-900-999-95-8601-9230,WC,,Yes,,,6777570739,Yes,C02216,3735355123,,Unimelt CC,N,Barclays Bank - Lobatsa,197705,,ES9121000059310200317609,,2012-07-24,,Gerald,,Mr.,(031) 266-0673 ,13.0,0468635543,vshanmugham@ampaglas.com,804 4539,,,0.0,0.0
+"Ranchhod, Mr. Jitesh",,GER007,Employee,Partnership,7408165235084,Y,,,Generic,,60,10.22,,N,N,H,8.0,2022/11/16 00:00:00,06-JUN-2023,4800167159,N,Y,Y,N,HF National Office H90,MILLINGS,2009-12-18 09:58:47,Highveld Park,,Killarney,Steeldale,,B-2100,KWA ZULU-NATAL.,MALAYSIA,IE,206,1220 978/011 514-1400,N,N,13-JUN-2013,,BWP,4450190428,PRINTED,"Receptionjhb@thermopac.co.za,Ufloris@thermopac.co.za",N,EXEMPT VAT,Y,U,03-330-999-95-8601-9110,,Rebates,No,Conradie L de K,Control Union EXP 2025-02-02,0563846679,,ZA2605105,2801139756,Current,MONBIN BK,Y,Old Mutual Bank,,NZD,MU86MCBL0944000441862039000EUR,"3,000",2011-03-03,Correspondence,Mev E,ANNEKE ,MRS,,,6268583725,peter@ajpg.net,2908440,003209,1.0,,
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Please graph the supplier types
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-20 20:05:46 [INFO] Executing Step 3: CodeGenerator
+2024-05-20 20:05:49 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-20 20:05:49 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+"Mlangeni, Lesego Sannie",PETRONELLA GAGIANO,RTE001,,,1993/005561/07,,2019/07/05 00:00:00,4.0,EME,QSE,35.33,,31.94,Y,,,,2022/12/01 00:00:00,02-SEP-2014,,,Y,Y,N,ENT Enterprise Foods (E90),ENT GERM1319TVL,2022-11-02 17:51:28,,JOHANNESBURG,,,SA,1545,,,,,971 4558,,Y,,EUR,,,,"sarie.geldenhuys@tigerbrands.com, s.brink@saground.nutm.co.za",,Standard Vat,,N,41-758-999-90-8002-0000,NC,Outsourced,,Kaufman Levin Associates CC,NSF EXP 2019-12-01,0277872110,No checklist required,,4283665652,Current,zzzzL HEUNIS,Y,FNB-Woodstock  Cape Town,026009593,TRY,,MARITZBURG ENG.,,Correspondence,,De Wet Van Den,,313 5337,209.0,0791689537,,,0111,0.0,1.0,1.0
+HEART FOUNDATION,A J SWARTZ CONSTRUCTION,ELE002,Rebates,Company (Pty) Ltd,,N,2012/06/27 00:27:18,9.0,,EME,,.93,31.88,,Y,Z,9.0,,,4400111011,N,N,N,N,CS Consumer National (A90),,,33 Beechgate Crescent,FREE PRESS JOURNAL ROAD,Steenberg,Boston,Mozambique,,SECUNA,Hungary,GB,27 129,,Y,,20-DEC-2013,HKD,NAD,4440162362,EMAIL,,L,,N,,20-900-999-95-8601-9230,WC,,Yes,,,6777570739,Yes,C02216,3735355123,,Unimelt CC,N,Barclays Bank - Lobatsa,197705,,ES9121000059310200317609,,2012-07-24,,Gerald,,Mr.,(031) 266-0673 ,13.0,0468635543,vshanmugham@ampaglas.com,804 4539,,,0.0,0.0
+"Ranchhod, Mr. Jitesh",,GER007,Employee,Partnership,7408165235084,Y,,,Generic,,60,10.22,,N,N,H,8.0,2022/11/16 00:00:00,06-JUN-2023,4800167159,N,Y,Y,N,HF National Office H90,MILLINGS,2009-12-18 09:58:47,Highveld Park,,Killarney,Steeldale,,B-2100,KWA ZULU-NATAL.,MALAYSIA,IE,206,1220 978/011 514-1400,N,N,13-JUN-2013,,BWP,4450190428,PRINTED,"Receptionjhb@thermopac.co.za,Ufloris@thermopac.co.za",N,EXEMPT VAT,Y,U,03-330-999-95-8601-9110,,Rebates,No,Conradie L de K,Control Union EXP 2025-02-02,0563846679,,ZA2605105,2801139756,Current,MONBIN BK,Y,Old Mutual Bank,,NZD,MU86MCBL0944000441862039000EUR,"3,000",2011-03-03,Correspondence,Mev E,ANNEKE ,MRS,,,6268583725,peter@ajpg.net,2908440,003209,1.0,,
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Please graph the supplier types
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-20 20:05:49 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the data from the dataframe
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+
+# Plotting the supplier types
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plt.savefig('supplier_types_distribution.png')
+
+# Declare result variable
+result = {
+    "type": "plot",
+    "value": "supplier_types_distribution.png"
+}
+            ```
+            
+2024-05-20 20:05:49 [INFO] Executing Step 4: CachePopulation
+2024-05-20 20:05:49 [INFO] Executing Step 5: CodeCleaning
+2024-05-20 20:05:49 [INFO] Saving charts to C:\Users\RyanBlumenow\Desktop\Ryan\Emergent\Analytics\Tiger DataLab\exports\charts\temp_chart.png
+2024-05-20 20:05:49 [INFO] 
+Code running:
+```
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/RyanBlumenow/Desktop/Ryan/Emergent/Analytics/Tiger DataLab/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/RyanBlumenow/Desktop/Ryan/Emergent/Analytics/Tiger DataLab/exports/charts/temp_chart.png'}
+        ```
+2024-05-20 20:05:49 [INFO] Executing Step 6: CodeExecution
+2024-05-20 20:05:50 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+2024-05-20 20:05:50 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-05-20 20:05:50 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-05-20 20:05:50 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-05-20 20:05:50 [INFO] Using prompt: <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+"Mlangeni, Lesego Sannie",PETRONELLA GAGIANO,RTE001,,,1993/005561/07,,2019/07/05 00:00:00,4.0,EME,QSE,35.33,,31.94,Y,,,,2022/12/01 00:00:00,02-SEP-2014,,,Y,Y,N,ENT Enterprise Foods (E90),ENT GERM1319TVL,2022-11-02 17:51:28,,JOHANNESBURG,,,SA,1545,,,,,971 4558,,Y,,EUR,,,,"sarie.geldenhuys@tigerbrands.com, s.brink@saground.nutm.co.za",,Standard Vat,,N,41-758-999-90-8002-0000,NC,Outsourced,,Kaufman Levin Associates CC,NSF EXP 2019-12-01,0277872110,No checklist required,,4283665652,Current,zzzzL HEUNIS,Y,FNB-Woodstock  Cape Town,026009593,TRY,,MARITZBURG ENG.,,Correspondence,,De Wet Van Den,,313 5337,209.0,0791689537,,,0111,0.0,1.0,1.0
+HEART FOUNDATION,A J SWARTZ CONSTRUCTION,ELE002,Rebates,Company (Pty) Ltd,,N,2012/06/27 00:27:18,9.0,,EME,,.93,31.88,,Y,Z,9.0,,,4400111011,N,N,N,N,CS Consumer National (A90),,,33 Beechgate Crescent,FREE PRESS JOURNAL ROAD,Steenberg,Boston,Mozambique,,SECUNA,Hungary,GB,27 129,,Y,,20-DEC-2013,HKD,NAD,4440162362,EMAIL,,L,,N,,20-900-999-95-8601-9230,WC,,Yes,,,6777570739,Yes,C02216,3735355123,,Unimelt CC,N,Barclays Bank - Lobatsa,197705,,ES9121000059310200317609,,2012-07-24,,Gerald,,Mr.,(031) 266-0673 ,13.0,0468635543,vshanmugham@ampaglas.com,804 4539,,,0.0,0.0
+"Ranchhod, Mr. Jitesh",,GER007,Employee,Partnership,7408165235084,Y,,,Generic,,60,10.22,,N,N,H,8.0,2022/11/16 00:00:00,06-JUN-2023,4800167159,N,Y,Y,N,HF National Office H90,MILLINGS,2009-12-18 09:58:47,Highveld Park,,Killarney,Steeldale,,B-2100,KWA ZULU-NATAL.,MALAYSIA,IE,206,1220 978/011 514-1400,N,N,13-JUN-2013,,BWP,4450190428,PRINTED,"Receptionjhb@thermopac.co.za,Ufloris@thermopac.co.za",N,EXEMPT VAT,Y,U,03-330-999-95-8601-9110,,Rebates,No,Conradie L de K,Control Union EXP 2025-02-02,0563846679,,ZA2605105,2801139756,Current,MONBIN BK,Y,Old Mutual Bank,,NZD,MU86MCBL0944000441862039000EUR,"3,000",2011-03-03,Correspondence,Mev E,ANNEKE ,MRS,,,6268583725,peter@ajpg.net,2908440,003209,1.0,,
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Please graph the supplier types
+
+You generated this python code:
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/RyanBlumenow/Desktop/Ryan/Emergent/Analytics/Tiger DataLab/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/RyanBlumenow/Desktop/Ryan/Emergent/Analytics/Tiger DataLab/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+2024-05-20 20:05:50 [INFO] Executing Step 1: CodeGenerator
+2024-05-20 20:05:53 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-20 20:05:53 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+"Mlangeni, Lesego Sannie",PETRONELLA GAGIANO,RTE001,,,1993/005561/07,,2019/07/05 00:00:00,4.0,EME,QSE,35.33,,31.94,Y,,,,2022/12/01 00:00:00,02-SEP-2014,,,Y,Y,N,ENT Enterprise Foods (E90),ENT GERM1319TVL,2022-11-02 17:51:28,,JOHANNESBURG,,,SA,1545,,,,,971 4558,,Y,,EUR,,,,"sarie.geldenhuys@tigerbrands.com, s.brink@saground.nutm.co.za",,Standard Vat,,N,41-758-999-90-8002-0000,NC,Outsourced,,Kaufman Levin Associates CC,NSF EXP 2019-12-01,0277872110,No checklist required,,4283665652,Current,zzzzL HEUNIS,Y,FNB-Woodstock  Cape Town,026009593,TRY,,MARITZBURG ENG.,,Correspondence,,De Wet Van Den,,313 5337,209.0,0791689537,,,0111,0.0,1.0,1.0
+HEART FOUNDATION,A J SWARTZ CONSTRUCTION,ELE002,Rebates,Company (Pty) Ltd,,N,2012/06/27 00:27:18,9.0,,EME,,.93,31.88,,Y,Z,9.0,,,4400111011,N,N,N,N,CS Consumer National (A90),,,33 Beechgate Crescent,FREE PRESS JOURNAL ROAD,Steenberg,Boston,Mozambique,,SECUNA,Hungary,GB,27 129,,Y,,20-DEC-2013,HKD,NAD,4440162362,EMAIL,,L,,N,,20-900-999-95-8601-9230,WC,,Yes,,,6777570739,Yes,C02216,3735355123,,Unimelt CC,N,Barclays Bank - Lobatsa,197705,,ES9121000059310200317609,,2012-07-24,,Gerald,,Mr.,(031) 266-0673 ,13.0,0468635543,vshanmugham@ampaglas.com,804 4539,,,0.0,0.0
+"Ranchhod, Mr. Jitesh",,GER007,Employee,Partnership,7408165235084,Y,,,Generic,,60,10.22,,N,N,H,8.0,2022/11/16 00:00:00,06-JUN-2023,4800167159,N,Y,Y,N,HF National Office H90,MILLINGS,2009-12-18 09:58:47,Highveld Park,,Killarney,Steeldale,,B-2100,KWA ZULU-NATAL.,MALAYSIA,IE,206,1220 978/011 514-1400,N,N,13-JUN-2013,,BWP,4450190428,PRINTED,"Receptionjhb@thermopac.co.za,Ufloris@thermopac.co.za",N,EXEMPT VAT,Y,U,03-330-999-95-8601-9110,,Rebates,No,Conradie L de K,Control Union EXP 2025-02-02,0563846679,,ZA2605105,2801139756,Current,MONBIN BK,Y,Old Mutual Bank,,NZD,MU86MCBL0944000441862039000EUR,"3,000",2011-03-03,Correspondence,Mev E,ANNEKE ,MRS,,,6268583725,peter@ajpg.net,2908440,003209,1.0,,
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Please graph the supplier types
+
+You generated this python code:
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/RyanBlumenow/Desktop/Ryan/Emergent/Analytics/Tiger DataLab/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/RyanBlumenow/Desktop/Ryan/Emergent/Analytics/Tiger DataLab/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 97, in execute
+    raise InvalidOutputValueMismatch(
+pandasai.exceptions.InvalidOutputValueMismatch: Value type <class 'str'> must match with type plot
+
+
+Fix the python code above and return the new python code:
+            
+2024-05-20 20:05:53 [INFO] Code generated:
+            ```
+            import matplotlib.pyplot as plt
+
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+            ```
+            
+2024-05-20 20:05:53 [INFO] Executing Step 2: CodeCleaning
+2024-05-20 20:05:53 [INFO] 
+Code running:
+```
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+        ```
+2024-05-20 20:05:53 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+2024-05-20 20:05:53 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-05-20 20:05:53 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-05-20 20:05:53 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-05-20 20:05:53 [INFO] Using prompt: <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+"Mlangeni, Lesego Sannie",PETRONELLA GAGIANO,RTE001,,,1993/005561/07,,2019/07/05 00:00:00,4.0,EME,QSE,35.33,,31.94,Y,,,,2022/12/01 00:00:00,02-SEP-2014,,,Y,Y,N,ENT Enterprise Foods (E90),ENT GERM1319TVL,2022-11-02 17:51:28,,JOHANNESBURG,,,SA,1545,,,,,971 4558,,Y,,EUR,,,,"sarie.geldenhuys@tigerbrands.com, s.brink@saground.nutm.co.za",,Standard Vat,,N,41-758-999-90-8002-0000,NC,Outsourced,,Kaufman Levin Associates CC,NSF EXP 2019-12-01,0277872110,No checklist required,,4283665652,Current,zzzzL HEUNIS,Y,FNB-Woodstock  Cape Town,026009593,TRY,,MARITZBURG ENG.,,Correspondence,,De Wet Van Den,,313 5337,209.0,0791689537,,,0111,0.0,1.0,1.0
+HEART FOUNDATION,A J SWARTZ CONSTRUCTION,ELE002,Rebates,Company (Pty) Ltd,,N,2012/06/27 00:27:18,9.0,,EME,,.93,31.88,,Y,Z,9.0,,,4400111011,N,N,N,N,CS Consumer National (A90),,,33 Beechgate Crescent,FREE PRESS JOURNAL ROAD,Steenberg,Boston,Mozambique,,SECUNA,Hungary,GB,27 129,,Y,,20-DEC-2013,HKD,NAD,4440162362,EMAIL,,L,,N,,20-900-999-95-8601-9230,WC,,Yes,,,6777570739,Yes,C02216,3735355123,,Unimelt CC,N,Barclays Bank - Lobatsa,197705,,ES9121000059310200317609,,2012-07-24,,Gerald,,Mr.,(031) 266-0673 ,13.0,0468635543,vshanmugham@ampaglas.com,804 4539,,,0.0,0.0
+"Ranchhod, Mr. Jitesh",,GER007,Employee,Partnership,7408165235084,Y,,,Generic,,60,10.22,,N,N,H,8.0,2022/11/16 00:00:00,06-JUN-2023,4800167159,N,Y,Y,N,HF National Office H90,MILLINGS,2009-12-18 09:58:47,Highveld Park,,Killarney,Steeldale,,B-2100,KWA ZULU-NATAL.,MALAYSIA,IE,206,1220 978/011 514-1400,N,N,13-JUN-2013,,BWP,4450190428,PRINTED,"Receptionjhb@thermopac.co.za,Ufloris@thermopac.co.za",N,EXEMPT VAT,Y,U,03-330-999-95-8601-9110,,Rebates,No,Conradie L de K,Control Union EXP 2025-02-02,0563846679,,ZA2605105,2801139756,Current,MONBIN BK,Y,Old Mutual Bank,,NZD,MU86MCBL0944000441862039000EUR,"3,000",2011-03-03,Correspondence,Mev E,ANNEKE ,MRS,,,6268583725,peter@ajpg.net,2908440,003209,1.0,,
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Please graph the supplier types
+
+You generated this python code:
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+
+Fix the python code above and return the new python code:
+2024-05-20 20:05:53 [INFO] Executing Step 1: CodeGenerator
+2024-05-20 20:05:55 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-20 20:05:55 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+"Mlangeni, Lesego Sannie",PETRONELLA GAGIANO,RTE001,,,1993/005561/07,,2019/07/05 00:00:00,4.0,EME,QSE,35.33,,31.94,Y,,,,2022/12/01 00:00:00,02-SEP-2014,,,Y,Y,N,ENT Enterprise Foods (E90),ENT GERM1319TVL,2022-11-02 17:51:28,,JOHANNESBURG,,,SA,1545,,,,,971 4558,,Y,,EUR,,,,"sarie.geldenhuys@tigerbrands.com, s.brink@saground.nutm.co.za",,Standard Vat,,N,41-758-999-90-8002-0000,NC,Outsourced,,Kaufman Levin Associates CC,NSF EXP 2019-12-01,0277872110,No checklist required,,4283665652,Current,zzzzL HEUNIS,Y,FNB-Woodstock  Cape Town,026009593,TRY,,MARITZBURG ENG.,,Correspondence,,De Wet Van Den,,313 5337,209.0,0791689537,,,0111,0.0,1.0,1.0
+HEART FOUNDATION,A J SWARTZ CONSTRUCTION,ELE002,Rebates,Company (Pty) Ltd,,N,2012/06/27 00:27:18,9.0,,EME,,.93,31.88,,Y,Z,9.0,,,4400111011,N,N,N,N,CS Consumer National (A90),,,33 Beechgate Crescent,FREE PRESS JOURNAL ROAD,Steenberg,Boston,Mozambique,,SECUNA,Hungary,GB,27 129,,Y,,20-DEC-2013,HKD,NAD,4440162362,EMAIL,,L,,N,,20-900-999-95-8601-9230,WC,,Yes,,,6777570739,Yes,C02216,3735355123,,Unimelt CC,N,Barclays Bank - Lobatsa,197705,,ES9121000059310200317609,,2012-07-24,,Gerald,,Mr.,(031) 266-0673 ,13.0,0468635543,vshanmugham@ampaglas.com,804 4539,,,0.0,0.0
+"Ranchhod, Mr. Jitesh",,GER007,Employee,Partnership,7408165235084,Y,,,Generic,,60,10.22,,N,N,H,8.0,2022/11/16 00:00:00,06-JUN-2023,4800167159,N,Y,Y,N,HF National Office H90,MILLINGS,2009-12-18 09:58:47,Highveld Park,,Killarney,Steeldale,,B-2100,KWA ZULU-NATAL.,MALAYSIA,IE,206,1220 978/011 514-1400,N,N,13-JUN-2013,,BWP,4450190428,PRINTED,"Receptionjhb@thermopac.co.za,Ufloris@thermopac.co.za",N,EXEMPT VAT,Y,U,03-330-999-95-8601-9110,,Rebates,No,Conradie L de K,Control Union EXP 2025-02-02,0563846679,,ZA2605105,2801139756,Current,MONBIN BK,Y,Old Mutual Bank,,NZD,MU86MCBL0944000441862039000EUR,"3,000",2011-03-03,Correspondence,Mev E,ANNEKE ,MRS,,,6268583725,peter@ajpg.net,2908440,003209,1.0,,
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Please graph the supplier types
+
+You generated this python code:
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+
+Fix the python code above and return the new python code:
+            
+2024-05-20 20:05:55 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs[0] is the dataframe provided
+dfs = pd.read_clipboard(sep=',')
+supplier_types = dfs['SUPPLIER_TYPE'].value_counts()
+
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+            ```
+            
+2024-05-20 20:05:55 [INFO] Executing Step 2: CodeCleaning
+2024-05-20 20:05:55 [INFO] 
+Code running:
+```
+supplier_types = dfs['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+        ```
+2024-05-20 20:05:55 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+TypeError: list indices must be integers or slices, not str
+
+2024-05-20 20:05:55 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-05-20 20:05:55 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-05-20 20:05:55 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-05-20 20:05:55 [INFO] Using prompt: <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+"Mlangeni, Lesego Sannie",PETRONELLA GAGIANO,RTE001,,,1993/005561/07,,2019/07/05 00:00:00,4.0,EME,QSE,35.33,,31.94,Y,,,,2022/12/01 00:00:00,02-SEP-2014,,,Y,Y,N,ENT Enterprise Foods (E90),ENT GERM1319TVL,2022-11-02 17:51:28,,JOHANNESBURG,,,SA,1545,,,,,971 4558,,Y,,EUR,,,,"sarie.geldenhuys@tigerbrands.com, s.brink@saground.nutm.co.za",,Standard Vat,,N,41-758-999-90-8002-0000,NC,Outsourced,,Kaufman Levin Associates CC,NSF EXP 2019-12-01,0277872110,No checklist required,,4283665652,Current,zzzzL HEUNIS,Y,FNB-Woodstock  Cape Town,026009593,TRY,,MARITZBURG ENG.,,Correspondence,,De Wet Van Den,,313 5337,209.0,0791689537,,,0111,0.0,1.0,1.0
+HEART FOUNDATION,A J SWARTZ CONSTRUCTION,ELE002,Rebates,Company (Pty) Ltd,,N,2012/06/27 00:27:18,9.0,,EME,,.93,31.88,,Y,Z,9.0,,,4400111011,N,N,N,N,CS Consumer National (A90),,,33 Beechgate Crescent,FREE PRESS JOURNAL ROAD,Steenberg,Boston,Mozambique,,SECUNA,Hungary,GB,27 129,,Y,,20-DEC-2013,HKD,NAD,4440162362,EMAIL,,L,,N,,20-900-999-95-8601-9230,WC,,Yes,,,6777570739,Yes,C02216,3735355123,,Unimelt CC,N,Barclays Bank - Lobatsa,197705,,ES9121000059310200317609,,2012-07-24,,Gerald,,Mr.,(031) 266-0673 ,13.0,0468635543,vshanmugham@ampaglas.com,804 4539,,,0.0,0.0
+"Ranchhod, Mr. Jitesh",,GER007,Employee,Partnership,7408165235084,Y,,,Generic,,60,10.22,,N,N,H,8.0,2022/11/16 00:00:00,06-JUN-2023,4800167159,N,Y,Y,N,HF National Office H90,MILLINGS,2009-12-18 09:58:47,Highveld Park,,Killarney,Steeldale,,B-2100,KWA ZULU-NATAL.,MALAYSIA,IE,206,1220 978/011 514-1400,N,N,13-JUN-2013,,BWP,4450190428,PRINTED,"Receptionjhb@thermopac.co.za,Ufloris@thermopac.co.za",N,EXEMPT VAT,Y,U,03-330-999-95-8601-9110,,Rebates,No,Conradie L de K,Control Union EXP 2025-02-02,0563846679,,ZA2605105,2801139756,Current,MONBIN BK,Y,Old Mutual Bank,,NZD,MU86MCBL0944000441862039000EUR,"3,000",2011-03-03,Correspondence,Mev E,ANNEKE ,MRS,,,6268583725,peter@ajpg.net,2908440,003209,1.0,,
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Please graph the supplier types
+
+You generated this python code:
+supplier_types = dfs['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+TypeError: list indices must be integers or slices, not str
+
+
+Fix the python code above and return the new python code:
+2024-05-20 20:05:55 [INFO] Executing Step 1: CodeGenerator
+2024-05-20 20:05:58 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-20 20:05:58 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+"Mlangeni, Lesego Sannie",PETRONELLA GAGIANO,RTE001,,,1993/005561/07,,2019/07/05 00:00:00,4.0,EME,QSE,35.33,,31.94,Y,,,,2022/12/01 00:00:00,02-SEP-2014,,,Y,Y,N,ENT Enterprise Foods (E90),ENT GERM1319TVL,2022-11-02 17:51:28,,JOHANNESBURG,,,SA,1545,,,,,971 4558,,Y,,EUR,,,,"sarie.geldenhuys@tigerbrands.com, s.brink@saground.nutm.co.za",,Standard Vat,,N,41-758-999-90-8002-0000,NC,Outsourced,,Kaufman Levin Associates CC,NSF EXP 2019-12-01,0277872110,No checklist required,,4283665652,Current,zzzzL HEUNIS,Y,FNB-Woodstock  Cape Town,026009593,TRY,,MARITZBURG ENG.,,Correspondence,,De Wet Van Den,,313 5337,209.0,0791689537,,,0111,0.0,1.0,1.0
+HEART FOUNDATION,A J SWARTZ CONSTRUCTION,ELE002,Rebates,Company (Pty) Ltd,,N,2012/06/27 00:27:18,9.0,,EME,,.93,31.88,,Y,Z,9.0,,,4400111011,N,N,N,N,CS Consumer National (A90),,,33 Beechgate Crescent,FREE PRESS JOURNAL ROAD,Steenberg,Boston,Mozambique,,SECUNA,Hungary,GB,27 129,,Y,,20-DEC-2013,HKD,NAD,4440162362,EMAIL,,L,,N,,20-900-999-95-8601-9230,WC,,Yes,,,6777570739,Yes,C02216,3735355123,,Unimelt CC,N,Barclays Bank - Lobatsa,197705,,ES9121000059310200317609,,2012-07-24,,Gerald,,Mr.,(031) 266-0673 ,13.0,0468635543,vshanmugham@ampaglas.com,804 4539,,,0.0,0.0
+"Ranchhod, Mr. Jitesh",,GER007,Employee,Partnership,7408165235084,Y,,,Generic,,60,10.22,,N,N,H,8.0,2022/11/16 00:00:00,06-JUN-2023,4800167159,N,Y,Y,N,HF National Office H90,MILLINGS,2009-12-18 09:58:47,Highveld Park,,Killarney,Steeldale,,B-2100,KWA ZULU-NATAL.,MALAYSIA,IE,206,1220 978/011 514-1400,N,N,13-JUN-2013,,BWP,4450190428,PRINTED,"Receptionjhb@thermopac.co.za,Ufloris@thermopac.co.za",N,EXEMPT VAT,Y,U,03-330-999-95-8601-9110,,Rebates,No,Conradie L de K,Control Union EXP 2025-02-02,0563846679,,ZA2605105,2801139756,Current,MONBIN BK,Y,Old Mutual Bank,,NZD,MU86MCBL0944000441862039000EUR,"3,000",2011-03-03,Correspondence,Mev E,ANNEKE ,MRS,,,6268583725,peter@ajpg.net,2908440,003209,1.0,,
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Please graph the supplier types
+
+You generated this python code:
+supplier_types = dfs['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+TypeError: list indices must be integers or slices, not str
+
+
+Fix the python code above and return the new python code:
+            
+2024-05-20 20:05:58 [INFO] Code generated:
+            ```
+            import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs is a list of dataframes
+dfs = [df]  # Assuming df is the dataframe provided
+
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+            ```
+            
+2024-05-20 20:05:58 [INFO] Executing Step 2: CodeCleaning
+2024-05-20 20:05:58 [INFO] 
+Code running:
+```
+supplier_types = dfs[0]['SUPPLIER_TYPE'].value_counts()
+plt.figure(figsize=(10, 6))
+supplier_types.plot(kind='bar', color='skyblue')
+plt.title('Supplier Types Distribution')
+plt.xlabel('Supplier Type')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+        ```
+2024-05-20 20:05:58 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\RyanBlumenow\AppData\Roaming\Python\Python310\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+2024-05-20 20:05:58 [ERROR] Pipeline failed on step 6: No result returned
+2024-05-20 20:09:39 [INFO] Question: Please tell me if certain supplier types are more or less likely to have higher BEE ratings
+2024-05-20 20:09:39 [INFO] Running PandasAI with openai LLM...
+2024-05-20 20:09:39 [INFO] Prompt ID: a67f4da5-4f2e-481e-ae7c-e345b2607199
+2024-05-20 20:09:39 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-05-20 20:09:40 [INFO] Executing Step 0: ValidatePipelineInput
+2024-05-20 20:09:40 [INFO] Executing Step 1: CacheLookup
+2024-05-20 20:09:40 [INFO] Executing Step 2: PromptGeneration
+2024-05-20 20:09:40 [INFO] Using prompt: <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+Electro Star,A Division Of Avusa Retail Ltd,LIM005,Tiger Grain,Partnership,,,2012/07/04 00:00:00,2.0,,EME,,8.24,,,,A,4.0,,21-JUN-2021,,N,N,N,N,Imex International,ROSETTENVILLE,2022-11-02 18:06:33,,,Netherlands,Verwoerd Park,Gatehill,4013,Senegal,LAMBTON,,+288,,,N,13-JUN-2013,NZD,AUD,,EMAIL, liezel@oomph-africa.com,N,ZERO RATED VAT,N,U,11-900-999-95-8601-9160,KAZ,Capital Expenses,No,,Control Union EXP 2025-02-23,,,C02215,1676222632,Current,PLASTOP (PTY) LTD,Y,Nedbank - Melrose Arch,10096,EUR,GB27BUKB20926363169634,,2010-12-10,Correspondence,,,MRS,9041076799,,4840769271,l_1o5fzpeqy@yahoo.com,,0662,,0.0,1.0
+RIO CONSUMABLES,,MMA070,Trust,,8204060463080,N,,5.0,GENERIC,GENERIC,13.27,,35.48,N,Y,,,2023/11/30 00:00:00,,4760227472,,Y,Y,N,CUL Culinary National,,,Off Coker Road,Lesotho,,,S A,4385,,Atlantis,KR,,617 2400,N,,,,,4220102638,PRINTED,ernest@clinx.co.za,,,Y,N,02-900-999-95-8601-9160,,,Yes,SOMERSON BOERDERY,,4049929950092,No checklist required,,9758127633,,LE ROUX PJM,N,Nedbank - Westville Mall,,USD,IT31I0200812710000500047552,2500000,2012-03-08,,Dirk,Muziwandile,,6804988724,13.0,9850490874,46s_zjs6728@protonmail.com,374 4465,,1.0,,
+OLENTLE SELEPE TRADING ENTERPRISE (PTY) LTD,Kumkani Country Lodge,BRL001,,Sole Proprietor,2014/273245/07,Y,2018/10/14 00:27:18,,EME,,0.00,0.2,13.41,Y,N,H,6.0,2023/06/27 00:00:00,17-DEC-2008,4910220427,N,N,N,N,TR Tastic Rice,INACTIVE21,2022-11-02 18:05:45,Alberton,Bockburg-East,SPRINGS,West Wanchai,,,Eastern Cape,,CN,+633,5731054,Y,Y,20-DEC-2013,JPY,KES,4080165576,,,L,UNCLAIMABLE VAT,,,02-900-999-95-8602-9050,MP,Rebates,,"Lexco Cable MFG & Distributors, Inc",NSF EXP 2020-02-19,4049929491526,Yes,000000000000000000003613554718,3815091359,Current,UPTOWN DESIGN CC,Y,FNB-Nylstroom Tvl,016641,,,3500,,Correspondence,J T,PREMRAJ,Mr.,2037082424,209.0,2283142379,anqntz@icloud.com,5641858,0865,0.0,1.0,0.0
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Please tell me if certain supplier types are more or less likely to have higher BEE ratings
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-05-20 20:09:40 [INFO] Executing Step 3: CodeGenerator
+2024-05-20 20:09:44 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-05-20 20:09:44 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:79797x83
+SUPPLIER_NAME,SUPPLIER_ALTERNATE_NAME,SUPPLIER_NUMBER,SUPPLIER_TYPE,COMPANY_TYPE,COMPANY_REGISTRATION_NUMBER,BEE_VERIFICATION_STATUS,BEE_DATE_OF_ISSUE,BEE_RECOGNITION_LEVEL,BEE_VENDOR_CLASS,QSE/EME?,BLACK_OWNERSHIP_PERC,BLACK_WOMAN_OWNERSHIP_PERC,BEE_ENTERPRISE_DEVELOPMENT_PERC,BEE_VALUE_ADDING_ENTERPRISE,BEE_SUPPLIER_SALES,BEE_EXCLUSION_REASON,RISK_RATING,RATING_DATE,SUPPLIER_INACTIVE_DATE,SUPPLIER_VAT_REGISTRATION_NUMBER,PURCHASE_ORDER_HOLD,HOLD_FROM_PAYMENT_ALL_INVOICES,HOLD_FROM_PAYMENT_UNMATCHED_INVOICES,HOLD_FROM_PAYMENT_UNVALIDATED_INVOICES,OPERATING_UNIT,SITE_NAME,SITE_INACTIVE_DATE,ADDRESS_LINE2,ADDRESS_LINE3,SUBURB,CITY,STATE,POSTAL_CODE,PROVINCE,COUNTY,COUNTRY,PHONE_AREA_CODE,PHONE_NUMBER,PURCHASING_FLAG,PAYMENT_FLAG,SITE_CONTACT_INACTIVE_DATE,INVOICE_CURRENCY_CODE,PAYMENT_CURRENCY_CODE,SITE_VAT_REGISTRATION_NUMBER,REMIT_ADVICE_DELIVERY_METHOD,REMIT_ADVICE_EMAIL,CALCULATE_TAX,VAT_CODE,ALLOW_OFFSET_TAXES,ROUNDING_RULE,CODE_COMBINATION,PROVINCE_1,PURCHASE_CLASS,PCOE_MANAGED,SUPPLIER_CHEQUE_NAME,CERTIFIED_BY,CERTIFICATION_NUMBER,INVOICE_DETAIL_CHECKLIST,PAYMENT_REFERENCE_NUMBER,ACCOUNT_NUMBER,ACCOUNT_TYPE,ACCOUNT_OWNER_NAME,PRIMARY_FLAG,BANK_NAME,BRANCH_CODE,PAYMENT_CURRENCY_CODE_1,IBAN,SWIFT_CODE,BANK_END_DATE,SITE_CONTACT_PURPOSE,SITE_CONTACT_FIRST_NAME,SITE_CONTACT_LAST_NAME,SITE_CONTACT_TITLE,SITE_CONTACT_PHONE_NUMBER,SITE_CONTACT_AREA_CODE,SITE_CONTACT_ALTERNATIVE_PHONE_NUMBER,SITE_CONTACT_EMAIL_ADDRESS,FAX,FAX_AREA_CODE,Cheque name check,Account name check,Unnamed: 82
+Electro Star,A Division Of Avusa Retail Ltd,LIM005,Tiger Grain,Partnership,,,2012/07/04 00:00:00,2.0,,EME,,8.24,,,,A,4.0,,21-JUN-2021,,N,N,N,N,Imex International,ROSETTENVILLE,2022-11-02 18:06:33,,,Netherlands,Verwoerd Park,Gatehill,4013,Senegal,LAMBTON,,+288,,,N,13-JUN-2013,NZD,AUD,,EMAIL, liezel@oomph-africa.com,N,ZERO RATED VAT,N,U,11-900-999-95-8601-9160,KAZ,Capital Expenses,No,,Control Union EXP 2025-02-23,,,C02215,1676222632,Current,PLASTOP (PTY) LTD,Y,Nedbank - Melrose Arch,10096,EUR,GB27BUKB20926363169634,,2010-12-10,Correspondence,,,MRS,9041076799,,4840769271,l_1o5fzpeqy@yahoo.com,,0662,,0.0,1.0
+RIO CONSUMABLES,,MMA070,Trust,,8204060463080,N,,5.0,GENERIC,GENERIC,13.27,,35.48,N,Y,,,2023/11/30 00:00:00,,4760227472,,Y,Y,N,CUL Culinary National,,,Off Coker Road,Lesotho,,,S A,4385,,Atlantis,KR,,617 2400,N,,,,,4220102638,PRINTED,ernest@clinx.co.za,,,Y,N,02-900-999-95-8601-9160,,,Yes,SOMERSON BOERDERY,,4049929950092,No checklist required,,9758127633,,LE ROUX PJM,N,Nedbank - Westville Mall,,USD,IT31I0200812710000500047552,2500000,2012-03-08,,Dirk,Muziwandile,,6804988724,13.0,9850490874,46s_zjs6728@protonmail.com,374 4465,,1.0,,
+OLENTLE SELEPE TRADING ENTERPRISE (PTY) LTD,Kumkani Country Lodge,BRL001,,Sole Proprietor,2014/273245/07,Y,2018/10/14 00:27:18,,EME,,0.00,0.2,13.41,Y,N,H,6.0,2023/06/27 00:00:00,17-DEC-2008,4910220427,N,N,N,N,TR Tastic Rice,INACTIVE21,2022-11-02 18:05:45,Alberton,Bockburg-East,SPRINGS,West Wanchai,,,Eastern Cape,,CN,+633,5731054,Y,Y,20-DEC-2013,JPY,KES,4080165576,,,L,UNCLAIMABLE VAT,,,02-900-999-95-8602-9050,MP,Rebates,,"Lexco Cable MFG & Distributors, Inc",NSF EXP 2020-02-19,4049929491526,Yes,000000000000000000003613554718,3815091359,Current,UPTOWN DESIGN CC,Y,FNB-Nylstroom Tvl,016641,,,3500,,Correspondence,J T,PREMRAJ,Mr.,2037082424,209.0,2283142379,anqntz@icloud.com,5641858,0865,0.0,1.0,0.0
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Please tell me if certain supplier types are more or less likely to have higher BEE ratings
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-05-20 20:09:44 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Extract relevant columns for analysis
+supplier_data = dfs[0][['SUPPLIER_TYPE', 'BEE_RECOGNITION_LEVEL']]
+
+# Group by supplier type and calculate average BEE recognition level
+average_bee_rating = supplier_data.groupby('SUPPLIER_TYPE')['BEE_RECOGNITION_LEVEL'].mean().reset_index()
+
+# Determine if certain supplier types are more or less likely to have higher BEE ratings
+average_bee_rating['Higher_BEE_Rating'] = average_bee_rating['BEE_RECOGNITION_LEVEL'] > average_bee_rating['BEE_RECOGNITION_LEVEL'].mean()
+
+result = {"type": "dataframe", "value": average_bee_rating}
+            ```
+            
+2024-05-20 20:09:44 [INFO] Executing Step 4: CachePopulation
+2024-05-20 20:09:44 [INFO] Executing Step 5: CodeCleaning
+2024-05-20 20:09:44 [INFO] 
+Code running:
+```
+supplier_data = dfs[0][['SUPPLIER_TYPE', 'BEE_RECOGNITION_LEVEL']]
+average_bee_rating = supplier_data.groupby('SUPPLIER_TYPE')['BEE_RECOGNITION_LEVEL'].mean().reset_index()
+average_bee_rating['Higher_BEE_Rating'] = average_bee_rating['BEE_RECOGNITION_LEVEL'] > average_bee_rating['BEE_RECOGNITION_LEVEL'].mean()
+result = {'type': 'dataframe', 'value': average_bee_rating}
+        ```
+2024-05-20 20:09:44 [INFO] Executing Step 6: CodeExecution
+2024-05-20 20:09:44 [INFO] Executing Step 7: ResultValidation
+2024-05-20 20:09:44 [INFO] Answer: {'type': 'dataframe', 'value':                  SUPPLIER_TYPE  BEE_RECOGNITION_LEVEL  Higher_BEE_Rating
+0                     Cashbook               7.701754              False
+1                    Contracts               7.641618              False
+2                     Employee               8.995124               True
+3                Inter-Company               7.277896              False
+4                International               8.619658               True
+5               Municipalities               9.000000               True
+6      Public Sector Companies               7.217778              False
+7                Raw Materials               8.243590               True
+8                      Rebates               7.359949              False
+9             Salaries/Payroll               8.927711               True
+10                 Sole Trader               8.147766               True
+11                    Supplier               5.891468              False
+12               Tax Authority               9.000000               True
+13                 Tiger Grain               7.440000              False
+14                 Tiger Weigh               8.558503               True
+15  Tiger Weigh - Transporters               7.680000              False
+16                      Trader               9.000000               True
+17                   Transport               4.809883              False
+18                       Trust               5.676471              False}
+2024-05-20 20:09:44 [INFO] Executing Step 8: ResultParsing
