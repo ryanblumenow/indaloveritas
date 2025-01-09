@@ -180,7 +180,7 @@ class indalohome(HydraHeadApp):
 
             st.subheader("What is Veritas? This is next-generation, predictive Monitoring and Evaluation")
         
-            html_code = """
+            html_code="""
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -241,6 +241,7 @@ class indalohome(HydraHeadApp):
             <script>
                 const ctx = document.getElementById('donutChart').getContext('2d');
                 const infoBox = document.getElementById('infoBox');
+                let currentHoverIndex = null; // Track the currently hovered segment
 
                 const data = {
                     labels: [
@@ -285,57 +286,60 @@ class indalohome(HydraHeadApp):
                         onHover: (event, elements) => {
                             if (elements.length > 0) {
                                 const segmentIndex = elements[0].index; // Index of the hovered segment
-                                const { x, y } = elements[0].element.tooltipPosition(); // Tooltip position
-                                const chartCenterX = event.chart.width / 2; // Horizontal center of the chart
-                                const chartCenterY = event.chart.height / 2; // Vertical center of the chart
 
-                                // Ensure infoBox stays within visible area
-                                const bodyRect = document.body.getBoundingClientRect();
-                                const infoBoxWidth = infoBox.offsetWidth;
-                                const infoBoxHeight = infoBox.offsetHeight;
+                                // Update the tooltip only if a new segment is hovered
+                                if (currentHoverIndex !== segmentIndex) {
+                                    currentHoverIndex = segmentIndex; // Update current hover index
+                                    const { x, y } = elements[0].element.tooltipPosition(); // Tooltip position
+                                    const chartCenterX = event.chart.width / 2; // Horizontal center of the chart
+                                    const chartCenterY = event.chart.height / 2; // Vertical center of the chart
 
-                                // Determine the quadrant
-                                let left, top;
-                                if (x >= chartCenterX && y <= chartCenterY) {
-                                    // Top-right quadrant
-                                    left = x + 100; // Position slightly to the right
-                                    top = y - infoBoxHeight / 2; // Center vertically
-                                } else if (x < chartCenterX && y <= chartCenterY) {
-                                    // Top-left quadrant
-                                    left = x - infoBoxWidth - 100; // Position slightly to the left
-                                    top = y - infoBoxHeight / 2; // Center vertically
-                                } else if (x < chartCenterX && y > chartCenterY) {
-                                    // Bottom-left quadrant
-                                    left = x - infoBoxWidth - 100; // Position slightly to the left
-                                    top = y - infoBoxHeight / 2; // Center vertically
-                                } else {
-                                    // Bottom-right quadrant
-                                    left = x + 100; // Position slightly to the right
-                                    top = y - infoBoxHeight / 2; // Center vertically
-                                }
+                                    // Ensure infoBox stays within visible area
+                                    const bodyRect = document.body.getBoundingClientRect();
+                                    const infoBoxWidth = infoBox.offsetWidth;
+                                    const infoBoxHeight = infoBox.offsetHeight;
 
-                                // Ensure the tooltip stays within the viewport
-                                if (left + infoBoxWidth > bodyRect.width) {
-                                    left = bodyRect.width - infoBoxWidth - 10; // Adjust to fit within the viewport
-                                }
-                                if (left < 0) {
-                                    left = 10; // Adjust to fit within the viewport
-                                }
-                                if (top + infoBoxHeight > bodyRect.height) {
-                                    top = bodyRect.height - infoBoxHeight - 10; // Adjust to fit within the viewport
-                                }
-                                if (top < 0) {
-                                    top = 10; // Adjust to fit within the viewport
-                                }
+                                    // Determine the quadrant
+                                    let left, top;
+                                    if (x >= chartCenterX && y <= chartCenterY) {
+                                        left = x + 100;
+                                        top = y - infoBoxHeight / 2;
+                                    } else if (x < chartCenterX && y <= chartCenterY) {
+                                        left = x - infoBoxWidth - 100;
+                                        top = y - infoBoxHeight / 2;
+                                    } else if (x < chartCenterX && y > chartCenterY) {
+                                        left = x - infoBoxWidth - 100;
+                                        top = y - infoBoxHeight / 2;
+                                    } else {
+                                        left = x + 100;
+                                        top = y - infoBoxHeight / 2;
+                                    }
 
-                                // Set the position and show the tooltip
-                                infoBox.style.left = `${left}px`;
-                                infoBox.style.top = `${top}px`;
-                                infoBox.style.display = 'block';
-                                infoBox.textContent = descriptions[segmentIndex]; // Use the custom description
+                                    // Ensure the tooltip stays within the viewport
+                                    if (left + infoBoxWidth > bodyRect.width) {
+                                        left = bodyRect.width - infoBoxWidth - 10;
+                                    }
+                                    if (left < 0) {
+                                        left = 10;
+                                    }
+                                    if (top + infoBoxHeight > bodyRect.height) {
+                                        top = bodyRect.height - infoBoxHeight - 10;
+                                    }
+                                    if (top < 0) {
+                                        top = 10;
+                                    }
+
+                                    // Set the position and show the tooltip
+                                    infoBox.style.left = `${left}px`;
+                                    infoBox.style.top = `${top}px`;
+                                    infoBox.style.display = 'block';
+                                    infoBox.textContent = descriptions[segmentIndex];
+                                }
                             } else {
-                                // Hide the tooltip if no segment is hovered
-                                infoBox.style.display = 'none';
+                                if (currentHoverIndex !== null) {
+                                    currentHoverIndex = null; // Reset hover index
+                                    infoBox.style.display = 'none'; // Hide the tooltip
+                                }
                             }
                         },
                     },
