@@ -28,3 +28,4 @@ pygwalker==0.4.9.13
 datetime
 python-pptx
 hydralit
+keyboard
