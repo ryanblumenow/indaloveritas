@@ -14,6 +14,7 @@ from indalohome import indalohome
 import apps
 from streamlit_option_menu import option_menu
 from indalodashboards import indalodashboardshome
+from apps.login_app import LoginApp
 from streamlit_extras.add_vertical_space import add_vertical_space
 
 if __name__ == '__main__':
@@ -131,7 +132,7 @@ if __name__ == '__main__':
     app.add_app(title="Indalo home", icon="./gui/svg_icons/home.png", app=indalohome())
     app.add_app(title="Indalo dashboards", icon="analytics.ico", app=indalodashboardshome())
     app.add_loader_app(apps.MyLoadingApp(delay=0))
-    app.add_app("Log out", apps.LoginApp(title='Login'),is_login=True)
+    app.add_app("Log out", LoginApp())
 
     # app.add_app("Log out", apps.LoginApp(title='Login'),is_login=True)
 
