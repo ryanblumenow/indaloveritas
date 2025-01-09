@@ -273,7 +273,7 @@ class indalohome(HydraHeadApp):
                 ];
 
                 const quadrantImages = [
-                    'dartico.jpg'
+                    'https://example.com/image1.png'
                     'https://example.com/image2.png',
                     'https://example.com/image3.png',
                     'https://example.com/image4.png'
