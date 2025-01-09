@@ -20,7 +20,7 @@ from streamlit.runtime.scriptrunner import RerunData, RerunException
 
 # Monkey-patch st.experimental_rerun
 def experimental_rerun():
-    raise RerunException(RerunData(widget_state=None))
+    raise RerunException(RerunData())
 
 st.experimental_rerun = experimental_rerun
 
