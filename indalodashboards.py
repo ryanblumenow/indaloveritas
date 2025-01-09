@@ -61,7 +61,7 @@ import dtale.global_state as global_state
 import dtale.app as dtale_app
 from matplotlib.pyplot import axis, hist
 from scipy import stats as stats
-from bioinfokit.analys import stat
+# from bioinfokit.analys import stat
 from statsmodels.stats.anova import AnovaRM
 import statsmodels.api as sm
 from statsmodels.graphics.factorplots import interaction_plot
@@ -73,7 +73,7 @@ from click_image_advanalytics import st_click_image_advanalytics
 from dtale.views import startup
 from streamlit_quill import st_quill
 import pandas_profiling
-from pandas_profiling import ProfileReport
+# from pandas_profiling import ProfileReport
 from ydata_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 import dataingestion
@@ -95,8 +95,8 @@ import streamlit_antd_components as sac
 from st_click_detector import click_detector
 from click_image_dashboards import st_click_image_dashboards
 import plotly.express as px
-from geopy.geocoders import Nominatim
-import folium
+# from geopy.geocoders import Nominatim
+# import folium
 from time import sleep
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
