@@ -16,6 +16,13 @@ from streamlit_option_menu import option_menu
 from indalodashboards import indalodashboardshome
 from apps.login_app import LoginApp
 from streamlit_extras.add_vertical_space import add_vertical_space
+from streamlit.runtime.scriptrunner import RerunData, RerunException
+
+# Monkey-patch st.experimental_rerun
+def experimental_rerun():
+    raise RerunException(RerunData(widget_state=None))
+
+st.experimental_rerun = experimental_rerun
 
 if __name__ == '__main__':
 

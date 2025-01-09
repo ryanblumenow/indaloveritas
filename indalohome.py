@@ -219,6 +219,7 @@ class indalohome(HydraHeadApp):
                         text-align: center;
                         display: none;
                         white-space: nowrap;
+                        pointer-events: none; /* Prevent mouse interaction */
                     }
 
                     .center-image {
@@ -242,6 +243,7 @@ class indalohome(HydraHeadApp):
                 const ctx = document.getElementById('donutChart').getContext('2d');
                 const infoBox = document.getElementById('infoBox');
                 let currentHoverIndex = null; // Track the currently hovered segment
+                let hideTooltipTimeout = null; // Timeout for hiding the tooltip
 
                 const data = {
                     labels: [
@@ -284,6 +286,7 @@ class indalohome(HydraHeadApp):
                             }
                         },
                         onHover: (event, elements) => {
+                            clearTimeout(hideTooltipTimeout); // Clear the hide timeout
                             if (elements.length > 0) {
                                 const segmentIndex = elements[0].index; // Index of the hovered segment
 
@@ -338,7 +341,9 @@ class indalohome(HydraHeadApp):
                             } else {
                                 if (currentHoverIndex !== null) {
                                     currentHoverIndex = null; // Reset hover index
-                                    infoBox.style.display = 'none'; // Hide the tooltip
+                                    hideTooltipTimeout = setTimeout(() => {
+                                        infoBox.style.display = 'none'; // Hide the tooltip
+                                    }, 50); // Small delay to prevent flickering
                                 }
                             }
                         },
