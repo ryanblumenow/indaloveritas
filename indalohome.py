@@ -102,9 +102,9 @@ class indalohome(HydraHeadApp):
 
         col1, col2, col3 = st.columns([3.1,3,1])
 
-        col2.image("veritaslogo.png", width=250)
+        # col2.image("indalologo.png", width=250)
 
-        # col2.image("indalologo.jpg", use_column_width=False, width=180, caption="")
+        col2.image("indalologo.jpg", use_column_width=False, width=180, caption="")
 
         coltree1, coltree2, coltree3 = st.columns([1,3,1])
 
@@ -178,215 +178,164 @@ class indalohome(HydraHeadApp):
 
         with coltree2:
 
-            st.subheader("What is Veritas? This is next-generation, predictive Monitoring and Evaluation")
+            st.subheader("What is Veritas? This is next-generation, predictive Monitoring and Evaluation.")
 
-            html_code = """        
+            html_code="""        
             <!DOCTYPE html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Interactive Donut Chart</title>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <title>Interactive Quadrants</title>
                 <style>
                     body {
                         font-family: Arial, sans-serif;
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                        height: 100vh;
                         margin: 0;
                         background-color: #ffffff;
+                        overflow: hidden;
+                    }
+
+                    .quadrant-container {
                         position: relative;
-                        overflow-y: auto;
-                        height: 100vh;
-                    }
-
-                    canvas {
-                        width: 80%;
-                        height: auto;
-                    }
-
-                    .info-box {
-                        position: absolute;
-                        background: #fff;
-                        padding: 15px;
-                        border-radius: 10px;
-                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                        font-size: 18px;
-                        font-weight: bold;
-                        color: #333;
                         width: 500px;
-                        text-align: center;
-                        display: none;
-                        white-space: nowrap;
-                        pointer-events: none; /* Prevent mouse interaction */
+                        height: 500px;
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-rows: 1fr 1fr;
+                        gap: 10px;
                     }
 
-                    .center-image {
+                    .quadrant {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #f4f4f4;
+                        border: 2px solid maroon;
+                        border-radius: 10px;
+                        opacity: 0;
+                        transform: scale(0.8);
+                        animation: quadrantFadeIn 1s forwards ease-out;
+                        transition: transform 0.3s, box-shadow 0.3s;
+                    }
+
+                    .top-quadrant {
+                        flex-direction: column; /* Text above the image */
+                    }
+
+                    .bottom-quadrant {
+                        flex-direction: column-reverse; /* Text below the image */
+                    }
+
+                    .quadrant:hover {
+                        transform: scale(1.05);
+                        box-shadow: 0 0 20px rgba(255,128,128);
+                    }
+
+                    .quadrant img {
+                        width: 200px;
+                        height: 200px;
+                        object-fit: contain;
+                    }
+
+                    .quadrant .quadrant-text {
+                        margin-bottom: 10px;
+                        font-size: 14px;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+
+                    .center-logo {
                         position: absolute;
-                        width: 260px;
-                        height: 150px;
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
-                        border-radius: 0%;
+                        width: 180px;
+                        height: 120px;
+                    }
+
+                    .tooltip {
+                        position: absolute;
+                        background-color: #fff;
+                        padding: 10px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        font-size: 18px;
+                        display: none;
+                        white-space: nowrap;
+                        pointer-events: none;
+                    }
+
+                    /* Animations */
+                    @keyframes quadrantFadeIn {
+                        0% { opacity: 0; transform: scale(0.8); }
+                        100% { opacity: 1; transform: scale(1); }
+                    }
+
+                    .quadrant:nth-child(1) {
+                        animation-delay: 0.2s;
+                    }
+
+                    .quadrant:nth-child(2) {
+                        animation-delay: 0.4s;
+                    }
+
+                    .quadrant:nth-child(3) {
+                        animation-delay: 0.6s;
+                    }
+
+                    .quadrant:nth-child(4) {
+                        animation-delay: 0.8s;
                     }
                 </style>
             </head>
             <body>
 
-            <canvas id="donutChart" width="600" height="600"></canvas>
-            <img src="https://i.postimg.cc/pXBhPcHN/indalologo.png" alt="Cognitive Analytics" class="center-image">
-            <div class="info-box" id="infoBox">Hover over a segment</div>
+            <div class="quadrant-container">
+                <div class="quadrant top-quadrant" data-tooltip="Analytical Insights, from deep data analysis.">
+                    <div class="quadrant-text">1. Analytical Insights</div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO_lJMo867Kr-lkPCsDJuUWyn0cHBDsJ2KRg&s" alt="AI">
+                </div>
+                <div class="quadrant top-quadrant" data-tooltip="Domain Expertise, emphasizing industry knowledge.">
+                    <div class="quadrant-text">2. Domain Expertise</div>
+                    <img src="https://media.licdn.com/dms/image/D4D12AQFpNCyYnEwvVQ/article-cover_image-shrink_720_1280/0/1695042437428?e=2147483647&v=beta&t=sB1TIH7LyqWiORuex0f2llRW8nsLDep9haoZxsMUDXQ" alt="DE">
+                </div>
+                <div class="quadrant bottom-quadrant" data-tooltip="Governance and Monitoring and Evaluation, leveraging advanced algorithms.">
+                    <div class="quadrant-text">3. Governance and M&E</div>
+                    <img src="https://trialogueknowledgehub.co.za/wp-content/uploads/2019/08/monitoring-impact.jpg" alt="GV">
+                </div>
+                <div class="quadrant bottom-quadrant" data-tooltip="Planning & Optimization, from strategic vision.">
+                    <div class="quadrant-text">4. Planning & Optimization</div>
+                    <img src="https://wmep.org/wp-content/uploads/2022/05/iStock-1202205418-1024x540-1.jpg" alt="PO">
+                </div>
+                <img src="https://i.postimg.cc/Dy0sMXkR/veritaslogovert.png" alt="Logo" class="center-logo">
+            </div>
+            <div class="tooltip" id="tooltip"></div>
 
             <script>
-                const ctx = document.getElementById('donutChart').getContext('2d');
-                const infoBox = document.getElementById('infoBox');
-                let currentHoverIndex = null; // Track the currently hovered segment
-                let hideTooltipTimeout = null; // Timeout for hiding the tooltip
+                const quadrants = document.querySelectorAll('.quadrant');
+                const tooltip = document.getElementById('tooltip');
 
-                const data = {
-                    labels: [
-                        '2. Analytical Insights', 
-                        '3. Domain Expertise', 
-                        '4. Governance', 
-                        '1. Planning and optimization'
-                    ],
-                    datasets: [{
-                        data: [25, 25, 25, 25],
-                        backgroundColor: [
-                            'rgba(255, 223, 186, 0.9)', 
-                            'rgba(186, 225, 255, 0.9)', 
-                            'rgba(186, 255, 240, 0.9)', 
-                            'rgba(255, 204, 204, 0.9)'
-                        ],
-                        borderWidth: 1,
-                        hoverOffset: 20,
-                    }]
-                };
+                quadrants.forEach((quadrant) => {
+                    quadrant.addEventListener('mouseenter', (e) => {
+                        const tooltipText = quadrant.getAttribute('data-tooltip');
+                        tooltip.textContent = tooltipText;
+                        tooltip.style.display = 'block';
 
-                const descriptions = [
-                    "Analytical Insights, from deep data analysis.",
-                    "Domain Expertise, emphasizing industry knowledge.",
-                    "Monitoring and Evaluation, leveraging advanced algorithms.",
-                    "Strategic Vision, guiding long-term planning."
-                ];
+                        const rect = quadrant.getBoundingClientRect();
+                        tooltip.style.left = `${rect.x + rect.width / 2 - 100}px`;
+                        tooltip.style.top = `${rect.y - 30}px`;
+                    });
 
-                const quadrantImages = [
-                    'https://example.com/image1.png'
-                    'https://example.com/image2.png',
-                    'https://example.com/image3.png',
-                    'https://example.com/image4.png'
-                ];
-
-                const loadedImages = [];
-                quadrantImages.forEach((src, index) => {
-                    const img = new Image();
-                    img.src = src;
-                    loadedImages[index] = img;
+                    quadrant.addEventListener('mouseleave', () => {
+                        tooltip.style.display = 'none';
+                    });
                 });
-
-                const config = {
-                    type: 'doughnut',
-                    data: data,
-                    options: {
-                        responsive: false,
-                        plugins: {
-                            legend: {
-                                display: false, // Hide the legend
-                            },
-                            tooltip: {
-                                enabled: false, // Disable default tooltips
-                            }
-                        },
-                        onHover: (event, elements) => {
-                            clearTimeout(hideTooltipTimeout); // Clear the hide timeout
-                            if (elements.length > 0) {
-                                const segmentIndex = elements[0].index; // Index of the hovered segment
-
-                                // Update the tooltip only if a new segment is hovered
-                                if (currentHoverIndex !== segmentIndex) {
-                                    currentHoverIndex = segmentIndex; // Update current hover index
-                                    const { x, y } = elements[0].element.tooltipPosition(); // Tooltip position
-                                    const chartCenterX = event.chart.width / 2; // Horizontal center of the chart
-                                    const chartCenterY = event.chart.height / 2; // Vertical center of the chart
-
-                                    // Ensure infoBox stays within visible area
-                                    const bodyRect = document.body.getBoundingClientRect();
-                                    const infoBoxWidth = infoBox.offsetWidth;
-                                    const infoBoxHeight = infoBox.offsetHeight;
-
-                                    // Determine the quadrant
-                                    let left, top;
-                                    if (x >= chartCenterX && y <= chartCenterY) {
-                                        left = x + 100;
-                                        top = y - infoBoxHeight / 2;
-                                    } else if (x < chartCenterX && y <= chartCenterY) {
-                                        left = x - infoBoxWidth - 100;
-                                        top = y - infoBoxHeight / 2;
-                                    } else if (x < chartCenterX && y > chartCenterY) {
-                                        left = x - infoBoxWidth - 100;
-                                        top = y - infoBoxHeight / 2;
-                                    } else {
-                                        left = x + 100;
-                                        top = y - infoBoxHeight / 2;
-                                    }
-
-                                    // Ensure the tooltip stays within the viewport
-                                    if (left + infoBoxWidth > bodyRect.width) {
-                                        left = bodyRect.width - infoBoxWidth - 10;
-                                    }
-                                    if (left < 0) {
-                                        left = 10;
-                                    }
-                                    if (top + infoBoxHeight > bodyRect.height) {
-                                        top = bodyRect.height - infoBoxHeight - 10;
-                                    }
-                                    if (top < 0) {
-                                        top = 10;
-                                    }
-
-                                    // Set the position and show the tooltip
-                                    infoBox.style.left = `${left}px`;
-                                    infoBox.style.top = `${top}px`;
-                                    infoBox.style.display = 'block';
-                                    infoBox.textContent = descriptions[segmentIndex];
-                                }
-                            } else {
-                                if (currentHoverIndex !== null) {
-                                    currentHoverIndex = null; // Reset hover index
-                                    hideTooltipTimeout = setTimeout(() => {
-                                        infoBox.style.display = 'none'; // Hide the tooltip
-                                    }, 50); // Small delay to prevent flickering
-                                }
-                            }
-                        },
-                    },
-                    plugins: [{
-                        id: 'quadrantImages',
-                        afterDraw(chart) {
-                            const { ctx, chartArea, width, height } = chart;
-                            const meta = chart.getDatasetMeta(0);
-                            const radius = (meta.data[0].outerRadius + meta.data[0].innerRadius) / 2;
-
-                            meta.data.forEach((datapoint, index) => {
-                                const { x, y } = datapoint.tooltipPosition();
-                                const angle = datapoint.startAngle + (datapoint.endAngle - datapoint.startAngle) / 2;
-
-                                // Calculate image position (place slightly outward from center of each segment)
-                                const imgX = chartArea.left + (width / 2) + radius * Math.cos(angle);
-                                const imgY = chartArea.top + (height / 2) + radius * Math.sin(angle);
-
-                                const img = loadedImages[index];
-                                if (img.complete) {
-                                    ctx.drawImage(img, imgX - 15, imgY - 15, 30, 30); // Draw image (adjust size as needed)
-                                }
-                            });
-                        }
-                    }]
-                };
-
-                new Chart(ctx, config);
             </script>
 
             </body>

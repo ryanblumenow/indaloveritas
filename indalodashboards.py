@@ -5,7 +5,6 @@ import base64
 from email import header
 from html.entities import html5
 from importlib.resources import read_binary
-
 from markdown import markdown
 from numpy.core.fromnumeric import var
 import sys
@@ -93,7 +92,6 @@ from st_tabs import TabBar
 from streamlit_extras.add_vertical_space import add_vertical_space
 import streamlit_antd_components as sac
 from st_click_detector import click_detector
-from click_image_dashboards import st_click_image_dashboards
 import plotly.express as px
 # from geopy.geocoders import Nominatim
 # import folium
@@ -262,7 +260,7 @@ class indalodashboardshome(HydraHeadApp):
                 sac.CasItem('SIAWECCA', icon='twitter')]),
                     ], label='Indicator types', index=0, multiple=True, search=True, clear=True)
 
-        indalohome, dbrddbrd, dbrdmetrics, dbrdvaluemap, dbrdanalytics, dbrdpyg, dbrdmap = st.tabs([":red[Home]", ":red[Dashboard]", ":red[Metrics]", ":red[Value map]", ":red[Analytics]", ":red[Custom visualizations]", ":red[Map of influence]"])
+        dbrddbrd, dbrdmetrics, dbrdvaluemap, dbrdanalytics, dbrdpyg, dbrdmap = st.tabs([":red[Dashboard]", ":red[Metrics]", ":red[Value map]", ":red[Analytics]", ":red[Custom visualizations]", ":red[Map of influence]"]) # indalohome, ":red[Home]", 
 
         def generate_card_with_overlay(image_url, button1_text, button2_text, button3_text, card_text, expln_text, card_title):
             html_code = f'''
@@ -667,177 +665,6 @@ class indalodashboardshome(HydraHeadApp):
             ax.set_ylabel(y_label)
             ax.set_title(title)
             return save_plot_to_base64(fig)
-        
-        with indalohome:
-
-            value = st_click_image_dashboards()
-            if value is None:
-                # st.stop()
-                pass
-
-            st.success("{} selected".format(value))
-
-            col1, col2, col3 = st.columns([1,0.6,1])
-
-            clicked = ""
-
-            with col1:
-                pass
-
-            with col2:
-
-                content2 = """
-                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-                    <style>
-                    .zoom {
-                    padding: 10px;
-                    width: 290px;
-                    height: 180px;
-                    transition: transform .21s; /* Animation */
-                    margin: 0 auto;
-                    }
-                    .zoom:hover {
-                    transform: scale(1.1); /* (110% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-                    }
-                    </style>
-                    <div class="w3-container">
-                    <a href='#' id='Get started'><img width='21%' src='https://i.postimg.cc/2yyc69HY/analyticslbl.jpg' class='zoom w3-round-xxlarge w3-hover-opacity'></a>
-                    <!--<div class="w3-display-bottom w3-large"><b><h3>Click to start</h3></b></div>-->
-                    </div>
-                    """
-
-                clicked = click_detector(content2)
-
-                st.markdown(f"**{clicked} selected - begin analysis below.**" if clicked != "" else "         **Select a methodology and click 'Get started'!**")
-
-            with col3:
-                pass
-
-            if clicked == "Get started":
-
-                if value=='EDA':
-                    
-                    st.subheader("Exploratory data analysis")
-
-                    with st.spinner("Analyzing and summarizing dataset and generating dataset profile"):
-
-                        my_bar = st.progress(0)
-
-                        for percent_complete in range(100):
-                            time.sleep(0.01)
-                            my_bar.progress(percent_complete + 1)
-
-                        start_time = time.time()
-
-                        edaenv = st.expander("Guidance on EDA", expanded=False)
-
-                        with edaenv:
-
-                            st.info("User guide")
-
-                            def show_pdf(file_path):
-                                # Opening tutorial from file path
-                                with open(file_path, "rb") as f:
-                                    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-
-                                # Embedding PDF in HTML
-                                pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="1500" height="800" type="application/pdf"></iframe>'
-
-                                # Displaying File
-                                st.markdown(pdf_display, unsafe_allow_html=True)
-
-                            col1, col2,col3= st.columns(3)
-                            with col1:  
-                                if st.button('Read PDF tutorial',key='1'):            
-                                    show_pdf('.\Automated flow\DtaleInstructions-compressed.pdf')
-                            with col2:
-                                st.button('Close PDF tutorial',key='2')                   
-                            with col3:
-                                with open(".\Automated flow\DtaleInstructions-compressed.pdf", "rb") as pdf_file:
-                                    PDFbyte = pdf_file.read()
-                                st.download_button(label="Download PDF tutorial", key='3',
-                                        data=PDFbyte,
-                                        file_name="EDA Instructions.pdf",
-                                        mime='application/octet-stream')
-
-                        datadescrip = st.expander("Description of data")
-
-                        with datadescrip:
-
-                            st.write(df.describe(include='all'))
-                            
-                        edaprofiling = st.expander("Profile of dataset", expanded=False)
-                        
-                        with edaprofiling:
-                        
-                            # @st.cache(allow_output_mutation=True)
-                            # def gen_profile_report(df, *report_args, **report_kwargs):
-                            #     return df.profile_report(*report_args, **report_kwargs)
-
-                            # pr = gen_profile_report(df, explorative=True)
-
-                            # st_profile_report(pr)
-
-                            # df.drop(columns='BRANDNAME', axis=1)
-
-                            @st.cache(allow_output_mutation=True)
-                            def gen_profile_report(df_filtered_by_cohort, *report_args, **report_kwargs):
-                                return df_filtered_by_cohort.profile_report(*report_args, **report_kwargs)
-
-                            pr = gen_profile_report(df_filtered_by_cohort, explorative=True, title="Data profile",
-                            dataset={
-                            "description": "This profiling report shows an overview of the data",
-                            "copyright_holder": "Ryan Blumenow",
-                            "copyright_year": "2024",
-                            "url": "https://www.ryanblumenow.com"}, vars={"num": {"low_categorical_threshold": 0}} )
-
-                            st_profile_report(pr)
-
-                    startup(data_id="1", data=df_filtered_by_cohort.sample(15000)) # All records, no OHE
-
-                    if get_instance("1") is None:
-                        startup(data_id="1", data=df_filtered_by_cohort.sample(15000))
-
-                    d=get_instance("1")
-
-                    # webbrowser.open_new_tab('http://localhost:8501/dtale/main/1') # New window/tab
-                    # components.html("<iframe src='/dtale/main/1' />", width=1000, height=300, scrolling=True) # Element
-                    html = f"""<iframe src="/dtale/main/1" height="1000" width="1400"></iframe>""" # Iframe
-                    # html = "<a href='/dtale/main/1' target='_blank'>Dataframe 1</a>" # New tab link
-
-                    st.markdown(html, unsafe_allow_html=True)
-
-                    # d = dtale.show(pd.DataFrame(df2.sample(1000)))
-                    st.session_state.corr_img = d.get_corr_matrix()
-                    st.session_state.corr_df = d.get_corr_matrix(as_df=True)
-                    st.session_state.pps_img = d.get_pps_matrix()
-                    st.session_state.pps_df = d.get_pps_matrix(as_df=True)
-
-                    print(st.session_state.corr_df)
-
-                    checkbtn = st.button("Validate data")
-
-                    if checkbtn == True:
-                        df_amended = get_instance(data_id="1").data # The amended dataframe ready for upsert
-                        st.write("Sample of amended data:")
-                        st.write("")
-                        st.write(df_amended.head(5))
-
-                    clearchanges = st.button("Clear changes made to data")
-                    if clearchanges == True:
-                        global_state.cleanup()
-
-                    st.write("")
-                    
-                    st.subheader("Notes on EDA")
-
-                    # Spawn a new Quill editor
-                    st.subheader("Notes on exploratory data analysis")
-                    edacontent = st_quill(placeholder="Write your notes here", value=st.session_state.edanotes, key="edaquill")
-
-                    st.session_state.edanotes = edacontent
-
-                    st.write("Exploratory data analysis took ", time.time() - start_time, "seconds to run")
 
         with dbrddbrd:
 
