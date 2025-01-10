@@ -104,7 +104,7 @@ class indalohome(HydraHeadApp):
 
         # col2.image("indalologo.png", width=250)
 
-        col2.image("indalologo.jpg", use_column_width=False, width=180, caption="")
+        col2.image("indalologo.jpg", use_container_width=False, width=180, caption="")
 
         coltree1, coltree2, coltree3 = st.columns([1,3,1])
 
