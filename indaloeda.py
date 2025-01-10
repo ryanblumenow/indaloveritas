@@ -172,9 +172,6 @@ class indaloeda(HydraHeadApp):
 
                 start_time = time.time()
 
-                from mitosheet.streamlit.v1 import spreadsheet
-                spreadsheet(df_consolidated)
-
                 edaenv = st.expander("Guidance on EDA", expanded=False)
 
                 with edaenv:
@@ -259,6 +256,9 @@ class indaloeda(HydraHeadApp):
             # html = "<a href='/dtale/main/1' target='_blank'>Dataframe 1</a>" # New tab link
 
             st.markdown(html, unsafe_allow_html=True)
+
+            from mitosheet.streamlit.v1 import spreadsheet
+            spreadsheet(df_consolidated)
 
             # d = dtale.show(pd.DataFrame(df2.sample(1000)))
             st.session_state.corr_img = d.get_corr_matrix()
