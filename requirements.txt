@@ -1,14 +1,14 @@
 setuptools
 streamlit
 markdown
-numpy>=1.13.0
+# numpy>=1.13.0
 # pandas
 # Pillow
 # streamlit_extras
 # st_clickable_images
 # st_click_detector
 # streamlit-on-Hover-tabs
-streamlit_antd_component
+# streamlit_antd_component
 streamlit_pandas_profiling
 ydata_profiling
 mitosheet
