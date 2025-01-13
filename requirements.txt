@@ -1,41 +1,20 @@
 setuptools
-hydralit
-pandasai
-analytics-python
 streamlit
-streamlit-option-menu
 markdown
-scikit-learn
 numpy
 pandas
-statsmodels
-matplotlib
-seaborn
-scipy
 Pillow
-dtale
 streamlit_extras
 st_clickable_images
 st_click_detector
-# pandas_profiling>=3.1.0,<3.3.0
-streamlit_quill
-python-pptx
 streamlit-on-Hover-tabs
-# streamlit_pandas_profiling
+streamlit_pandas_profiling
 ydata_profiling
-# bioinfokit
 mitosheet
 pygwalker
 datetime
-python-pptx
+hydralit
 keyboard
-streamlit_antd_components==0.1.18
-# st_tabs
-# geopy
-# streamlit-folium
-# geocoder
-# leafmap
-collections
 fuzzywuzzy
 requests
 plotly
