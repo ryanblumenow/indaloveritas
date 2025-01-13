@@ -31,8 +31,9 @@ hydralit
 keyboard
 streamlit_antd_components
 st_tabs
-geopy
+# geopy
 # streamlit-folium
+geocoder
+leafmap
 collections
 fuzzywuzzy
-leafmap

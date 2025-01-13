@@ -93,14 +93,14 @@ from streamlit_extras.add_vertical_space import add_vertical_space
 import streamlit_antd_components as sac
 from st_click_detector import click_detector
 import plotly.express as px
-from geopy.geocoders import Nominatim
+# from geopy.geocoders import Nominatim
 # import folium
 from time import sleep
-from geopy.geocoders import Nominatim
-from geopy.exc import GeocoderTimedOut
+# from geopy.exc import GeocoderTimedOut
 from tenacity import retry, stop_after_attempt, wait_fixed
 import re
 import leafmap.foliumap as leafmap
+import geocoder
 
 #add an import to Hydralit
 from hydralit import HydraHeadApp
@@ -5178,25 +5178,22 @@ class indalodashboardshome(HydraHeadApp):
 
             df = pd.DataFrame(data)
 
-            # Initialize geolocator with user-agent
-            geolocator = Nominatim(user_agent="geo_locator")
-
-            # Function to get latitude and longitude
+            # Function to get latitude and longitude using geocoder
             def get_coordinates(community):
                 try:
-                    location = geolocator.geocode(community)
-                    if location:
-                        return pd.Series([location.latitude, location.longitude])
+                    g = geocoder.osm(community)
+                    if g.ok:
+                        return pd.Series([g.lat, g.lng])
                     else:
                         return pd.Series([None, None])
                 except Exception as e:
                     print(f"Error retrieving location for {community}: {e}")
                     return pd.Series([None, None])
 
-            # Apply function and create Latitude and Longitude columns
+            # Apply the function to the DataFrame
             df[['Latitude', 'Longitude']] = df['Community'].apply(get_coordinates)
 
-            # Sleep between requests to avoid overwhelming the geolocation service
+            # Sleep between requests to avoid overwhelming the service
             sleep(1)
 
             # Remove any rows with missing coordinates
