@@ -31,7 +31,7 @@ hydralit
 keyboard
 streamlit_antd_components
 st_tabs
-geopy
+geopy==2.4.1
 # streamlit-folium
 collections
 fuzzywuzzy
