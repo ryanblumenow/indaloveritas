@@ -32,7 +32,8 @@ keyboard
 streamlit_antd_components
 st_tabs
 geopy
-folium==0.19.4
+branca==0.8.1
+folium
 collections
 fuzzywuzzy
 
