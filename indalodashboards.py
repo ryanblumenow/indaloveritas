@@ -2372,7 +2372,7 @@ class indalodashboardshome(HydraHeadApp):
                 # Separate "Missing" from the numeric values for sorting
                 missing_count = operational_years_counts.pop("Missing") if "Missing" in operational_years_counts else 0
                 numeric_counts = operational_years_counts.sort_index()  # Sort numeric values
-                operational_years_counts = numeric_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                operational_years_counts = pd.concat([numeric_counts, pd.Series({"Missing": missing_count})])  # Add "Missing" back
 
                 # Create a bar chart
                 plt.figure(figsize=(10, 6))
