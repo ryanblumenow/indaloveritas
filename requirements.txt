@@ -20,7 +20,7 @@ st_click_detector
 streamlit_quill
 python-pptx
 streamlit-on-Hover-tabs
-streamlit_pandas_profiling
+streamlit_pandas_profiling==4.6.5
 ydata_profiling==4.6.5
 # bioinfokit
 mitosheet==4.6.5
