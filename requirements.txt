@@ -19,14 +19,14 @@ st_click_detector
 # pandas_profiling>=3.1.0,<3.3.0
 streamlit_quill
 python-pptx
-streamlit-on-Hover-tabs==1.9.1
+streamlit-on-Hover-tabs==1.10.0
 streamlit_pandas_profiling==4.6.5
 ydata_profiling==4.6.5
 # bioinfokit
 mitosheet==4.6.5
 pygwalker==3.10.0
 datetime==3.10.0
-python-pptx==1.9.1
+python-pptx==1.10.0
 hydralit==3.10.0
 keyboard==3.10.0
 streamlit_antd_components==1.21.3
