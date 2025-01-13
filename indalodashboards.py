@@ -5189,7 +5189,7 @@ class indalodashboardshome(HydraHeadApp):
 
             # Function to get latitude and longitude using OpenCage API or fallback to predefined data
             def get_coordinates_opencage(community):
-                api_key = "your-opencage-api-key"  # Replace with your OpenCage API key
+                api_key = "79cb6573ea98435189f05d6e7737d8db"  # Replace with your OpenCage API key
                 try:
                     response = requests.get(
                         f"https://api.opencagedata.com/geocode/v1/json?q={community}&key={api_key}"

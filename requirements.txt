@@ -30,7 +30,7 @@ python-pptx
 hydralit
 keyboard
 streamlit_antd_components
-st_tabs
+# st_tabs
 # geopy
 # streamlit-folium
 # geocoder
