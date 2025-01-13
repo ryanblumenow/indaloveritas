@@ -2,7 +2,6 @@ import os
 os.system("pip install hydralit")
 os.system("pip install streamlit-folium")
 
-import hydralit
 from hydralit import HydraApp
 import streamlit as st
 # from streamlit.state.session_state import SessionState
