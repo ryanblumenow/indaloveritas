@@ -1,11 +1,9 @@
 import time
 from typing import Dict
 import streamlit as st
-from hydralit import HydraHeadApp
 from indalohome import indalohome
 
-
-class LoginApp(HydraHeadApp):
+class LoginApp():
     """
     This is an example login application to be used to secure access within a HydraApp streamlit application.
     This application implementation uses the allow_access session variable and uses the do_redirect method if the login check is successful.
