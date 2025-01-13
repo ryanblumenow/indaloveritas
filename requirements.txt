@@ -23,7 +23,7 @@ streamlit-on-Hover-tabs
 streamlit_pandas_profiling
 ydata_profiling
 bioinfokit
-mitosheet
+mitosheet==4.6.5
 pygwalker==3.10.0
 datetime==3.10.0
 python-pptx
