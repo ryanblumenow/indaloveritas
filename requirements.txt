@@ -33,4 +33,6 @@ streamlit_antd_components
 st_tabs
 geopy
 folium
+collections
+fuzzywuzzy
 
