@@ -2,3 +2,4 @@ setuptools
 streamlit
 streamlit-option-menu
 streamlit_extras
+streamlit-on-Hover-tabs
