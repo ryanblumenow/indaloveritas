@@ -1,3 +1,4 @@
+import hydralit
 from hydralit import HydraApp
 import streamlit as st
 # from streamlit.state.session_state import SessionState
