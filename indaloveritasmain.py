@@ -11,7 +11,6 @@ import signal
 import streamlit.components.v1 as components
 import time
 from indalohomeveritas import indalohome
-import apps
 from streamlit_option_menu import option_menu
 from indalodashboardsveritas import indalodashboards
 from indaloedaveritas import indaloeda
