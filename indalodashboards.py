@@ -2821,7 +2821,9 @@ class indalodashboardshome(HydraHeadApp):
                 if "Missing" in energy_saved_counts:
                     missing_count = energy_saved_counts.pop("Missing")
                     energy_saved_counts = energy_saved_counts.sort_index()  # Sort numeric values
-                    energy_saved_counts = energy_saved_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                    # energy_saved_counts = energy_saved_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                    energy_saved_counts = pd.concat([energy_saved_counts, pd.Series({"Missing": missing_count})]) # Add "Missing" back
+
                 else:
                     energy_saved_counts = energy_saved_counts.sort_index()
 
