@@ -2,7 +2,7 @@ setuptools
 streamlit
 markdown
 numpy>=1.13.0
-pandas
+# pandas
 # Pillow
 # streamlit_extras
 # st_clickable_images
