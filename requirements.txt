@@ -1,20 +1,4 @@
-setuptools
-streamlit
-markdown
-# numpy>=1.13.0
-# pandas
-# Pillow
-# streamlit_extras
-# st_clickable_images
-# st_click_detector
-# streamlit-on-Hover-tabs
-# streamlit_antd_component
-streamlit_pandas_profiling
-ydata_profiling
-mitosheet
-pygwalker
-datetime
-keyboard
-fuzzywuzzy
-requests
-plotly
+setuptools==67.1.1
+streamlit==1.26.0
+streamlit-option-menu==0.3.6
+plotly==5.15.0
