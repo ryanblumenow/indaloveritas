@@ -1,5 +1,4 @@
 import streamlit as st
-import hydralit as hy
 from streamlit_option_menu import option_menu
 import base64
 from email import header
