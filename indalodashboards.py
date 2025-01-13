@@ -5162,8 +5162,6 @@ class indalodashboardshome(HydraHeadApp):
             
         with dbrdmap:
 
-            # Comprehensive code for all indicators with graphs and metric cards
-
             # Load your Excel file (replace with the path to your file)
             file_path = 'SiAGIA Baseline Report.xlsx'
             excel_data = pd.ExcelFile(file_path)
@@ -5213,8 +5211,6 @@ class indalodashboardshome(HydraHeadApp):
                     popup=row['Community']
                 ).add_to(m)
 
-            # Render the map in the Streamlit app
+            # Render the map in the Streamlit app using streamlit-folium
             st.title("Community Map")
-            folium_html = m._repr_html_()
-            st.components.v1.html(folium_html, height=3000)
-
+            st_folium(m, width=1200, height=3000)
