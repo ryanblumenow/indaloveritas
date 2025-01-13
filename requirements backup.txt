@@ -1,4 +1,5 @@
 setuptools
+hydralit
 pandasai
 analytics-python
 streamlit
@@ -27,7 +28,6 @@ mitosheet
 pygwalker
 datetime
 python-pptx
-hydralit
 keyboard
 streamlit_antd_components
 # st_tabs
