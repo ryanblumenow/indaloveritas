@@ -2902,7 +2902,9 @@ class indalodashboardshome(HydraHeadApp):
                 if pd.NA in water_saved_counts:
                     missing_count = water_saved_counts.pop(pd.NA)
                     water_saved_counts = water_saved_counts.sort_index()  # Sort numeric values
-                    water_saved_counts = water_saved_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                    # water_saved_counts = water_saved_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                    water_saved_counts = pd.concat([water_saved_counts, pd.Series({"Missing": missing_count})]) # Add "Missing" back
+
                 else:
                     water_saved_counts = water_saved_counts.sort_index()
 
@@ -2982,7 +2984,9 @@ class indalodashboardshome(HydraHeadApp):
                 if pd.NA in water_used_counts:
                     missing_count = water_used_counts.pop(pd.NA)
                     water_used_counts = water_used_counts.sort_index()  # Sort numeric values
-                    water_used_counts = water_used_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                    # water_used_counts = water_used_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                    water_used_counts = pd.concat([water_used_counts, pd.Series({"Missing": missing_count})]) # Add "Missing" back
+
                 else:
                     water_used_counts = water_used_counts.sort_index()
 
@@ -3066,7 +3070,9 @@ class indalodashboardshome(HydraHeadApp):
                 if pd.NA in waste_collected_counts:
                     missing_count = waste_collected_counts.pop(pd.NA)
                     waste_collected_counts = waste_collected_counts.sort_index()  # Sort numeric values
-                    waste_collected_counts = waste_collected_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                    # waste_collected_counts = waste_collected_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                    waste_collected_counts = pd.concat([waste_collected_counts, pd.Series({"Missing": missing_count})]) # Add "Missing" back
+
                 else:
                     waste_collected_counts = waste_collected_counts.sort_index()
 
@@ -3479,7 +3485,9 @@ class indalodashboardshome(HydraHeadApp):
                     if pd.NA in petrol_used_counts:
                         missing_count = petrol_used_counts.pop(pd.NA)
                         petrol_used_counts = petrol_used_counts.sort_index()  # Sort numeric values
-                        petrol_used_counts = petrol_used_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                        # petrol_used_counts = petrol_used_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
+                        petrol_used_counts = pd.concat([petrol_used_counts, pd.Series({"Missing": missing_count})]) # Add "Missing" back
+
                     else:
                         petrol_used_counts = petrol_used_counts.sort_index()
 
