@@ -22,14 +22,14 @@ streamlit_quill
 python-pptx
 streamlit-on-Hover-tabs
 # streamlit_pandas_profiling
-# ydata_profiling
+ydata_profiling
 # bioinfokit
 mitosheet
 pygwalker
 datetime
 python-pptx
 keyboard
-streamlit_antd_components
+streamlit_antd_components>=0.1.18
 # st_tabs
 # geopy
 # streamlit-folium
