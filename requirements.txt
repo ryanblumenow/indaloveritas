@@ -1,3 +1,4 @@
 setuptools
 streamlit
 streamlit-option-menu
+streamlit_extras
