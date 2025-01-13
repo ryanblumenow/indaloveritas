@@ -33,7 +33,7 @@ streamlit_antd_components
 st_tabs
 geopy
 branca==0.8.1
-folium
+folium==1.10.0
 collections
 fuzzywuzzy
 
