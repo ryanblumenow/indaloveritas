@@ -29,7 +29,7 @@ pygwalker
 datetime
 python-pptx
 keyboard
-streamlit_antd_components
+streamlit_antd_components==0.3.2
 # st_tabs
 # geopy
 # streamlit-folium
