@@ -28,7 +28,7 @@ pygwalker==0.4.9.13
 datetime
 python-pptx
 hydralit
-keyboard
+keyboard==3.10.0
 streamlit_antd_components==1.21.3
 # st_tabs
 # geopy
