@@ -18,8 +18,8 @@ st_clickable_images
 st_click_detector
 # pandas_profiling>=3.1.0,<3.3.0
 streamlit_quill
-python-pptx==0.4.1
-streamlit-on-Hover-tabs==4.0.3
+python-pptx==1.10.0
+streamlit-on-Hover-tabs
 streamlit_pandas_profiling==4.6.5
 ydata_profiling==4.6.5
 # bioinfokit
