@@ -24,7 +24,7 @@ streamlit_pandas_profiling
 ydata_profiling
 bioinfokit
 mitosheet
-pygwalker==0.4.9.13
+pygwalker
 datetime==3.10.0
 python-pptx
 hydralit==3.10.0
