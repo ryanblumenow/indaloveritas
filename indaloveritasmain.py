@@ -9,8 +9,6 @@ import keyboard
 import os
 import signal
 import streamlit.components.v1 as components
-import hydralit_components as hl
-import hydralit_components as hc
 import time
 from indalohomeveritas import indalohome
 import apps
