@@ -29,7 +29,7 @@ datetime
 python-pptx
 hydralit
 keyboard
-streamlit_antd_components
+# streamlit_antd_components
 # st_tabs
 # geopy
 # streamlit-folium
