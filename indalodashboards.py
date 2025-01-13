@@ -94,10 +94,10 @@ import streamlit_antd_components as sac
 from st_click_detector import click_detector
 import plotly.express as px
 import requests
-# from geopy.geocoders import Nominatim
-# import folium
+from geopy.geocoders import Nominatim
+import folium
 from time import sleep
-# from geopy.exc import GeocoderTimedOut
+from geopy.exc import GeocoderTimedOut
 from tenacity import retry, stop_after_attempt, wait_fixed
 import re
 
