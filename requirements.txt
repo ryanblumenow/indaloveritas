@@ -32,7 +32,7 @@ keyboard
 streamlit_antd_components
 st_tabs
 geopy
-streamlit-folium
+# streamlit-folium
 collections
 fuzzywuzzy
-
+leafmap

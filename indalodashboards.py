@@ -94,12 +94,13 @@ import streamlit_antd_components as sac
 from st_click_detector import click_detector
 import plotly.express as px
 from geopy.geocoders import Nominatim
-import folium
+# import folium
 from time import sleep
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
 from tenacity import retry, stop_after_attempt, wait_fixed
 import re
+import leafmap.foliumap as leafmap
 
 #add an import to Hydralit
 from hydralit import HydraHeadApp
@@ -5202,15 +5203,12 @@ class indalodashboardshome(HydraHeadApp):
             df = df.dropna(subset=['Latitude', 'Longitude'])
 
             # Create an interactive map centered around the first community
-            m = folium.Map(location=[df['Latitude'].mean(), df['Longitude'].mean()], zoom_start=6)
+            m = leafmap.Map(center=[df['Latitude'].mean(), df['Longitude'].mean()], zoom=6)
 
             # Add markers for each community
             for _, row in df.iterrows():
-                folium.Marker(
-                    location=[row['Latitude'], row['Longitude']],
-                    popup=row['Community']
-                ).add_to(m)
+                m.add_marker(location=[row['Latitude'], row['Longitude']], popup=row['Community'])
 
-            # Render the map in the Streamlit app using streamlit-folium
+            # Render the map in the Streamlit app
             st.title("Community Map")
-            st_folium(m, width=1200, height=3000)
+            m.to_streamlit(height=3000)
