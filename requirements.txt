@@ -24,12 +24,12 @@ streamlit_pandas_profiling
 ydata_profiling
 bioinfokit
 mitosheet
-pygwalker==0.4.9.13
-datetime
+pygwalker==3.10.0
+datetime==3.10.0
 python-pptx
-hydralit
-keyboard
-streamlit_antd_components
+hydralit==3.10.0
+keyboard==3.10.0
+streamlit_antd_components==1.21.3
 # st_tabs
 # geopy
 # streamlit-folium
