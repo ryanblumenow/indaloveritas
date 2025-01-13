@@ -3,7 +3,7 @@ streamlit
 markdown
 numpy>=1.13.0
 pandas
-Pillow
+# Pillow
 # streamlit_extras
 # st_clickable_images
 # st_click_detector
