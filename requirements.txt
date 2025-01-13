@@ -3,3 +3,4 @@ streamlit
 streamlit-option-menu
 streamlit_extras
 streamlit-on-Hover-tabs
+st_clickable_images
