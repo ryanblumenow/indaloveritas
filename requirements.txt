@@ -28,7 +28,7 @@ pygwalker
 datetime
 python-pptx
 hydralit
-keyboard
+# keyboard
 # streamlit_antd_components
 # st_tabs
 # geopy
