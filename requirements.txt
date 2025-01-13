@@ -25,7 +25,7 @@ ydata_profiling
 bioinfokit
 mitosheet
 pygwalker==0.4.9.13
-datetime
+datetime==3.10.0
 python-pptx
 hydralit==3.10.0
 keyboard==3.10.0
