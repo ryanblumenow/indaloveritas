@@ -7,3 +7,4 @@ st_clickable_images
 scikit-learn
 dtale
 st_click_detector
+streamlit_quill
