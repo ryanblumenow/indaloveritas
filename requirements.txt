@@ -32,4 +32,5 @@ keyboard
 streamlit_antd_components
 st_tabs
 geopy
+folium
 

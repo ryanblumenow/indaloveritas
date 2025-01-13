@@ -104,7 +104,7 @@ class indalohome(HydraHeadApp):
 
         # col2.image("indalologo.png", width=250)
 
-        col2.image("indalologo.jpg", use_container_width=False, width=180, caption="")
+        col2.image("indalologo.jpg", width=180, caption="")
 
         coltree1, coltree2, coltree3 = st.columns([1,3,1])
 
@@ -112,19 +112,19 @@ class indalohome(HydraHeadApp):
              
             # Define the bullet bars data
             bullet_bars = [
-                {"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8px86qz5KCA0O2TieLj6u1ecar5d229kDNw&s", "text": "Initiating and supporting high impact, environmentally friendly, and social entrepreneurial innovations", "color": "#ffcccc"},  # Light red
-                {"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8px86qz5KCA0O2TieLj6u1ecar5d229kDNw&s", "text": "Fostering oartnerships through dialogue among ecosystem stakeholders", "color": "#ff9999"},  # Medium red
+                {"image_url": "https://image.pngaaa.com/370/2709370-middle.png", "text": "Initiating and supporting high impact, environmentally friendly, and social entrepreneurial innovations", "color": "#ffcccc"},  # Light red
+                {"image_url": "https://image.pngaaa.com/370/2709370-middle.png", "text": "Fostering partnerships through dialogue among ecosystem stakeholders", "color": "#ff9999"},  # Medium red
                 ]
 
             # Generate the HTML for the bullet bars
             bullet_bar_html = """
-            <div style="width: 100%; margin: 0; padding: 0;">
+            <div style="width: 100%; margin: 0; padding: 0;"">
             """
             for bar in bullet_bars:
                 bullet_bar_html += f"""
                 <div style="display: flex; align-items: center; border: 1px solid #ccc; margin: 50px 0; padding: 10px; background-color: {bar['color']}; border-radius: 5px; width: 300px">
                     <img src="{bar['image_url']}" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 5px;">
-                    <span style="font-size: 16px; font-weight: normal; font-family: 'Arial';">{bar['text']}</span>
+                    <span style="font-size: 18px; font-weight: normal; font-family: 'Roboto';">{bar['text']}</span>
                 </div>
                 """
             bullet_bar_html += "</div>"
@@ -351,8 +351,8 @@ class indalohome(HydraHeadApp):
              
             # Define the bullet bars data
             bullet_bars = [
-                {"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8px86qz5KCA0O2TieLj6u1ecar5d229kDNw&s", "text": "Building a strong, robust institution with good goernance, excellent team, good citizenry", "color": "#ffcccc"},  # Medium red
-                {"image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8px86qz5KCA0O2TieLj6u1ecar5d229kDNw&s", "text": "Policy facilitation, co-creation of new policies, adaptation of new policies", "color": "#ff9999"},  # Darker red
+                {"image_url": "https://image.pngaaa.com/370/2709370-middle.png", "text": "Building a strong, robust institution with good goernance, excellent team, good citizenry", "color": "#ffcccc"},  # Medium red
+                {"image_url": "https://image.pngaaa.com/370/2709370-middle.png", "text": "Policy facilitation, co-creation of new policies, adaptation of new policies", "color": "#ff9999"},  # Darker red
             ]
 
             # Generate the HTML for the bullet bars
@@ -363,7 +363,7 @@ class indalohome(HydraHeadApp):
                 bullet_bar_html += f"""
                 <div style="display: flex; align-items: center; border: 1px solid #ccc; margin: 50px 0; padding: 10px; background-color: {bar['color']}; border-radius: 5px;">
                     <img src="{bar['image_url']}" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 5px;">
-                    <span style="font-size: 16px; font-weight: normal; font-family: "Arial";">{bar['text']}</span>
+                    <span style="font-size: 18px; font-weight: normal; font-family: "Arial";">{bar['text']}</span>
                 </div>
                 """
             bullet_bar_html += "</div>"

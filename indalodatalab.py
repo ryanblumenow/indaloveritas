@@ -15,6 +15,7 @@ import apps
 from streamlit_option_menu import option_menu
 from indalodashboards import indalodashboardshome
 from indaloeda import indaloeda
+from indalovaluemap import indalovaluemap
 from apps.login_app import LoginApp
 from streamlit_extras.add_vertical_space import add_vertical_space
 from streamlit.runtime.scriptrunner import RerunData, RerunException
@@ -139,7 +140,8 @@ if __name__ == '__main__':
     # app.add_app(title="Profiling", icon="analytics.ico", app=profiling())
     app.add_app(title="Indalo home", icon="./gui/svg_icons/home.png", app=indalohome())
     app.add_app(title="Indalo EDA", icon="dartico.jpg", app=indaloeda())
-    app.add_app(title="Indalo dashboards", icon="analytics.ico", app=indalodashboardshome())
+    app.add_app(title="Indalo M&E", icon="analytics.ico", app=indalodashboardshome())
+    app.add_app(title="Indalo value map", icon="analytics.ico", app=indalovaluemap())
     app.add_loader_app(apps.MyLoadingApp(delay=0))
     app.add_app("Log out", apps.LoginApp(title='Login'),is_login=True)
 
@@ -151,7 +153,8 @@ if __name__ == '__main__':
             # 'Overview   ': ['Overview'],
             'Indalo home': ['Indalo home'],
             'Indalo EDA': ['Indalo EDA'],
-            'Indalo dashboards': ['Indalo dashboards']
+            'Indalo M&E': ['Indalo M&E'],
+            'Indalo value map': ['Indalo value map']
             # 'Analytics dashboards': ['Dashboards', 'Dashboards2', 'Dashboards3'],
             # 'Advanced analytics': ['Advanced analytics'],
             # 'Make a prediction': ['Make a prediction'],

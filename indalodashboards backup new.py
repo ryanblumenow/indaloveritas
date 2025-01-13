@@ -93,8 +93,8 @@ from streamlit_extras.add_vertical_space import add_vertical_space
 import streamlit_antd_components as sac
 from st_click_detector import click_detector
 import plotly.express as px
-from geopy.geocoders import Nominatim
-import folium
+# from geopy.geocoders import Nominatim
+# import folium
 from time import sleep
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut
@@ -4513,6 +4513,10 @@ class indalodashboardshome(HydraHeadApp):
             pyg_app = StreamlitRenderer(df_tableau)
 
         with dbrdanalytics:
+            
+            import seaborn as sns
+            import ppscore as pps
+            import statsmodels.api as sm
 
             # Step 1: Handling NaN and infinite values
             # Replace infinite values with NaN
@@ -4525,631 +4529,117 @@ class indalodashboardshome(HydraHeadApp):
             # Fill remaining NaN values with the median of the column
             df_filtered_by_cohort.fillna(df_filtered_by_cohort.median(), inplace=True)
 
-            # Step 2: Correlation Analysis by chosen cohort
+            # Step 2: Correlation Analysis for Sales and Profit
             correlation_matrix = df_filtered_by_cohort.corr()
             st.header("Correlation matrix")
             st.write(correlation_matrix)
-            
-            st.header("Indalo analytics")
-            
-            st.info("The objective is to determine, for a given variable of interest, which other variables are most impactful, and to determine to the best degree how to manage them.")
+            # # sales_correlation = correlation_matrix['Sales per customer'].drop('Sales per customer').sort_values(ascending=False)
+            # # profit_correlation = correlation_matrix['Benefit per order'].drop('Benefit per order').sort_values(ascending=False)
 
-            def generate_card_with_overlay(image_url, button1_text, button2_text, button3_text, card_text, expln_text, card_title):
-                html_code = f'''
-                    <style>
-                        .card-container {{
-                            display: flex;
-                            border: 1px solid #fff; /* Change to white background */
-                            width: 375px;
-                            overflow: hidden;
-                            flex-direction: column;
-                            margin-bottom: 20px;
-                            background-color: #f0f0f0; /* Grey background */
-                            padding: 15px; /* Optional padding */
-                            border-radius: 10px; /* Optional rounded corners */
-                        }}
-                        .card-left {{
-                            padding: 10px;
-                            cursor: pointer;
-                            font-family: 'Roboto', sans-serif;
-                            font-size: 12px;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: flex-start;
-                        }}
-                        .card-left img {{
-                            max-width: 100%;
-                            max-height: 100%;
-                        }}
-                        .card-right {{
-                            padding: 10px;
-                            font-family: 'Roboto', sans-serif;
-                            font-size: 14px;
-                            overflow-y: hidden;
-                        }}
-                        .overlay {{
-                            display: none;
-                            position: fixed;
-                            top: 1px;
-                            left: 0;
-                            width: 90%;
-                            height: 90%;
-                            background-color: transparent; /* Transparent background */
-                            z-index: 1;
-                            justify-content: center;
-                            align-items: center;
-                        }}
-                        .overlay-image {{
-                            max-width: 80%; /* Adjust the width of the overlay image */
-                            max-height: 80%; /* Adjust the height of the overlay image */
-                        }}
-                        .card-title {{
-                            text-align: center;
-                            margin-top: 10px;
-                            font-family: 'Roboto', sans-serif;
-                            font-size: 14px;
-                        }}
-                        .button-container {{
-                            display: flex;
-                            justify-content: center;
-                        }}
-                        button {{
-                            background-color: #207DCE;
-                            color: white;
-                            padding: 10px 15px;
-                            border: none;
-                            border-radius: 15px; /* Make buttons rounded */
-                            cursor: pointer;
-                            margin: 5px;
-                        }}
-                    </style>
-                    <div class="card-container" style="font-family: 'Roboto', sans-serif;">
-                        <h3 class="card-title">{card_title}</h3>
-                        <div class="card-left" onclick="openOverlay()">
-                            <img src="{image_url}" style="width: 375px; height: 250px; margin-top: 25px;">
-                        </div>
-                        <div class="card-right">
-                            <div class="button-container">
-                                <button id="graph_expln_button">{button1_text}</button>
-                                <button id="graph_expln_button2">{button2_text}</button>
-                                <button id="reset_button">{button3_text}</button>
-                            </div>
-                            <p id="dynamic_heading"></p>
-                            <p class="card-text" id="dynamic_text">{" "}</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                    <div class="overlay" id="imageOverlay" onclick="closeOverlay()">
-                        <img src="{image_url}" class="overlay-image">
-                    </div>
-                    <script>
-                        function openOverlay() {{
-                            document.getElementById("imageOverlay").style.display = "block";
-                        }}
-                        function closeOverlay() {{
-                            document.getElementById("imageOverlay").style.display = "none";
-                        }}
-                        document.getElementById("graph_expln_button").addEventListener("click", function() {{
-                            document.getElementById("dynamic_heading").style.fontWeight = "bold";
-                            document.getElementById("dynamic_heading").innerText = "Analysis";
-                            document.getElementById("dynamic_text").innerText = "{card_text}";
-                            adjustCardHeight();
-                        }});
-                        document.getElementById("graph_expln_button2").addEventListener("click", function() {{
-                            document.getElementById("dynamic_heading").style.fontWeight = "bold";
-                            document.getElementById("dynamic_heading").innerText = "Recommendations";
-                            document.getElementById("dynamic_text").innerText = "{expln_text}";
-                            adjustCardHeight();
-                        }});
-                        document.getElementById("reset_button").addEventListener("click", function() {{
-                            document.getElementById("dynamic_heading").innerText = "";
-                            document.getElementById("dynamic_text").innerText = "";
-                            adjustCardHeight();
-                        }});
-                        function adjustCardHeight() {{
-                            var cardContainer = document.querySelector('.card-container');
-                            cardContainer.style.height = 'auto';
-                        }}
-                    </script>
-                '''
-                return html_code
+            # # Step 3: PPS Analysis
+            # pps_sales = pps.predictors(df, 'Sales per customer').sort_values(by='ppscore', ascending=False)
+            # pps_profit = pps.predictors(df, 'Benefit per order').sort_values(by='ppscore', ascending=False)
 
-            def generate_card_with_overlay_interactive(image_url, button1_text, button2_text, button3_text, card_text, expln_text, card_title):        
-                html_code_interactive = f'''
-                    <style>
-                        .card-container {{
-                            display: flex;
-                            border: 1px solid #fff; /* Change to white background */
-                            width: 375px;
-                            overflow: hidden;
-                            flex-direction: column;
-                            margin-bottom: 20px;
-                            background-color: #f0f0f0; /* Grey background */
-                            padding: 15px; /* Optional padding */
-                            border-radius: 10px; /* Optional rounded corners */
-                        }}
-                        .card-left {{
-                            padding: 10px;
-                            cursor: pointer;
-                            font-family: 'Roboto', sans-serif;
-                            font-size: 12px;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: flex-start;
-                        }}
-                        .card-left img {{
-                            max-width: 100%;
-                            max-height: 100%;
-                        }}
-                        .card-right {{
-                            padding: 10px;
-                            font-family: 'Roboto', sans-serif;
-                            font-size: 14px;
-                            overflow-y: hidden;
-                        }}
-                        .overlay {{
-                            display: none;
-                            position: fixed;
-                            top: 1px;
-                            left: 0;
-                            width: 90%;
-                            height: 90%;
-                            background-color: transparent; /* Transparent background */
-                            z-index: 1;
-                            justify-content: center;
-                            align-items: center;
-                        }}
-                        .overlay-image {{
-                            max-width: 80%; /* Adjust the width of the overlay image */
-                            max-height: 80%; /* Adjust the height of the overlay image */
-                        }}
-                        .card-title {{
-                            text-align: center;
-                            margin-top: 10px;
-                            font-family: 'Roboto', sans-serif;
-                            font-size: 14px;
-                        }}
-                        .button-container {{
-                            display: flex;
-                            justify-content: center;
-                        }}
-                        button {{
-                            background-color: #207DCE;
-                            color: white;
-                            padding: 10px 15px;
-                            border: none;
-                            border-radius: 15px; /* Make buttons rounded */
-                            cursor: pointer;
-                            margin: 5px;
-                        }}
-                    </style>
-                    <div class="card-container" style="font-family: 'Roboto', sans-serif;">
-                        <h3 class="card-title">{card_title}</h3>
-                        <div class="card-left" onclick="openOverlay()">
-                            {image_url}
-                        </div>
-                        <div class="card-right">
-                            <div class="button-container">
-                                <button id="graph_expln_button">{button1_text}</button>
-                                <button id="graph_expln_button2">{button2_text}</button>
-                                <button id="reset_button">{button3_text}</button>
-                            </div>
-                            <p id="dynamic_heading"></p>
-                            <p class="card-text" id="dynamic_text">{" "}</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                    <!--<div class="overlay" id="imageOverlay" onclick="closeOverlay()">
-                        {image_url}
-                    </div>-->
-                    <script>
-                        function openOverlay() {{
-                            document.getElementById("imageOverlay").style.display = "block";
-                        }}
-                        function closeOverlay() {{
-                            document.getElementById("imageOverlay").style.display = "none";
-                        }}
-                        document.getElementById("graph_expln_button").addEventListener("click", function() {{
-                            document.getElementById("dynamic_heading").style.fontWeight = "bold";
-                            document.getElementById("dynamic_heading").innerText = "Analysis";
-                            document.getElementById("dynamic_text").innerText = "{card_text}";
-                            adjustCardHeight();
-                        }});
-                        document.getElementById("graph_expln_button2").addEventListener("click", function() {{
-                            document.getElementById("dynamic_heading").style.fontWeight = "bold";
-                            document.getElementById("dynamic_heading").innerText = "Recommendations";
-                            document.getElementById("dynamic_text").innerText = "{expln_text}";
-                            adjustCardHeight();
-                        }});
-                        document.getElementById("reset_button").addEventListener("click", function() {{
-                            document.getElementById("dynamic_heading").innerText = "";
-                            document.getElementById("dynamic_text").innerText = "";
-                            adjustCardHeight();
-                        }});
-                        function adjustCardHeight() {{
-                            var cardContainer = document.querySelector('.card-container');
-                            cardContainer.style.height = 'auto';
-                        }}
-                    </script>
-                '''
-                return html_code_interactive
-            
-            # Add JavaScript to make the row height dynamic
-            st.markdown(
-                """
-                <script>
-                    const card1Wrapper = document.getElementById('card1_wrapper');
+            # # Step 4: Regression Analysis
+            # # Selecting top correlated variables for regression
+            # top_sales_predictors = sales_correlation.index[:5].tolist()
+            # top_profit_predictors = profit_correlation.index[:5].tolist()
 
-                    function setDynamicHeight() {
-                        const cardHeight = card1Wrapper.scrollHeight;
-                        card1Wrapper.style.height = cardHeight + 'px';
-                    }
+            # # Sales Regression
+            # X_sales = df[top_sales_predictors]
+            # y_sales = df['Sales per customer']
+            # X_sales = sm.add_constant(X_sales)  # adding a constant
+            # model_sales = sm.OLS(y_sales, X_sales).fit()
 
-                    // Call the function when the page loads
-                    setDynamicHeight();
+            # # Profit Regression
+            # X_profit = df[top_profit_predictors]
+            # y_profit = df['Benefit per order']
+            # X_profit = sm.add_constant(X_profit)  # adding a constant
+            # model_profit = sm.OLS(y_profit, X_profit).fit()
 
-                    // Call the function whenever the content inside the card changes
-                    card1Wrapper.addEventListener('DOMSubtreeModified', setDynamicHeight);
-                </script>
-                """,
-                unsafe_allow_html=True
-            )
+            # # Streamlit Code
+            # st.title('Sales and Profit Analysis')
 
-            def style_custom_metric_cards(
-                background_color: str = "#E8E8E8",
-                border_size_px: int = 1,
-                border_color: str = "#CCC",
-                border_radius_px: int = 5,
-                border_left_color: str = "#ffcc66",
-                box_shadow: bool = True,
-            ):
-                box_shadow_str = (
-                    "box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;"
-                    if box_shadow
-                    else "box-shadow: none !important;"
-                )
-                st.markdown(
-                    f"""
-                    <style>
-                        div[data-testid="custom-metric-container"] {{
-                            background-color: {background_color};
-                            border: {border_size_px}px solid {border_color};
-                            padding: 1.5% 5% 5% 10%;
-                            margin-top: -12px;
-                            border-radius: {border_radius_px}px;
-                            border-left: 0.5rem solid {border_left_color} !important;
-                            {box_shadow_str}
-                        }}
-                        div[data-testid="custom-metric-container"] .metric-value {{
-                            font-size: 36px;
-                        }}
-                        div[data-testid="custom-metric-container"] .metric-label {{
-                            font-size: 18px;
-                        }}
-                        div[data-testid="custom-metric-container"] .metric-delta {{
-                            font-size: 14px;
-                            text-align: left;
-                            white-space: pre-wrap;
-                        }}
-                    </style>
-                    """,
-                    unsafe_allow_html=True,
-                )
+            # # Correlation Analysis
+            # st.header('1. Correlation Analysis')
+            # st.markdown("### Top Correlations for Sales and Profit")
 
-            def create_metric_card(label, value, description, centered=False):
-                text_align = "center" if centered else "left"
-                return f"""
-                <div data-testid="custom-metric-container" style="
-                    display: flex; 
-                    flex-direction: column; 
-                    justify-content: center; 
-                    align-items: {text_align}; 
-                    padding: 16px; 
-                    margin: 8px;
-                    border: 1px solid #ddd; 
-                    border-radius: 8px; 
-                    background-color: #f9f9f9; 
-                    width: 100%; 
-                    height: auto;
-                    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
-                    <div class="metric-label" style="
-                        font-weight: bold; 
-                        font-size: 16px; 
-                        margin-bottom: 8px; 
-                        text-align: {text_align};">{label}</div>
-                    <div class="metric-value" style="
-                        font-weight: bold; 
-                        font-size: 24px; 
-                        margin-bottom: 8px; 
-                        color: #333; 
-                        text-align: {text_align};">{value}</div>
-                    <div class="custom-metric-delta" style="
-                        font-weight: normal; 
-                        font-size: 14px; 
-                        color: #777; 
-                        text-align: {text_align};">{description}</div>
-                </div>
-                """
-            
-            style_custom_metric_cards() # Adds the styling, e.g. left-hand bar on card
+            # top_sales_corr = sales_correlation.index[0]
+            # top_profit_corr = profit_correlation.index[0]
 
-            def generate_analysis_card(df, varx, expln):
-                """
-                Generate an analysis card for a given variable, either categorical or numerical.
+            # # Visualizing Top Correlations
+            # fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
-                Args:
-                    df (DataFrame): The original dataframe.
-                    varx (str): The variable to analyze.
+            # sns.barplot(x=sales_correlation.head(5).values, y=sales_correlation.head(5).index, ax=axes[0], palette='Blues_d')
+            # axes[0].set_title('Top 5 Correlations with Sales per Customer')
+            # axes[0].set_xlabel('Correlation Coefficient')
+            # axes[0].set_ylabel('')
 
-                Returns:
-                    str: The generated HTML for the card.
-                """
-                if pd.api.types.is_categorical_dtype(df[varx]) or df[varx].dtype == 'object':
-                    # Categorical Variable: Aggregate counts
-                    category_data = df[varx].value_counts().reset_index()
-                    category_data.columns = ['Category', 'Count']
+            # sns.barplot(x=profit_correlation.head(5).values, y=profit_correlation.head(5).index, ax=axes[1], palette='Reds_d')
+            # axes[1].set_title('Top 5 Correlations with Benefit per Order')
+            # axes[1].set_xlabel('Correlation Coefficient')
+            # axes[1].set_ylabel('')
 
-                    # Get unique categories
-                    categories = category_data['Category'].tolist()
+            # st.pyplot(fig)
 
-                    # Create an interactive bar chart
-                    fig = px.bar(
-                        category_data,
-                        x='Category',
-                        y='Count',
-                        text='Count',
-                        labels={'Category': varx, 'Count': 'Frequency'},
-                        hover_data=['Count'],
-                    )
+            # st.info(f"**Insight on Sales per Customer:** The variable most strongly correlated with Sales per Customer is `{top_sales_corr}` with a correlation coefficient of {sales_correlation[top_sales_corr]:.2f}. This suggests that changes in `{top_sales_corr}` are closely related to changes in sales, indicating a potential area to focus on for sales strategies.")
 
-                    # Update layout for consistent styling
-                    fig.update_layout(
-                        xaxis=dict(
-                            title=dict(
-                                text=' ',
-                                standoff=30
-                            ),
-                            tickangle=45,
-                            tickfont=dict(size=10)
-                        ),
-                        yaxis_title=f"Count of {varx}",
-                        margin=dict(l=121, r=40, t=80, b=60),
-                        width=375,
-                        height=275
-                    )
-                    fig.update_traces(marker_color='skyblue')
+            # st.info(f"**Insight on Benefit per Order:** The variable most strongly correlated with Benefit per Order is `{top_profit_corr}` with a correlation coefficient of {profit_correlation[top_profit_corr]:.2f}. This indicates that `{top_profit_corr}` plays a significant role in determining profitability, and efforts to optimize this variable could enhance profit margins.")
 
-                    # Dynamically create buttons for each category
-                    buttons = [
-                        dict(
-                            args=[{"x": [category_data['Category']], "y": [category_data.loc[category_data['Category'] == category, 'Count']]}],
-                            label=str(category),
-                            method="update"
-                        )
-                        for category in categories
-                    ]
+            # # PPS Analysis
+            # st.header('2. Predictive Power Score (PPS) Analysis')
+            # st.markdown("### Top PPS Scores for Sales and Profit")
 
-                    # Add "All Categories" button
-                    buttons.insert(
-                        0,
-                        dict(
-                            args=[{"x": [category_data['Category']], "y": [category_data['Count']]}],
-                            label="All Categories",
-                            method="update"
-                        )
-                    )
+            # top_sales_pps = pps_sales.iloc[0]['x']
+            # top_profit_pps = pps_profit.iloc[0]['x']
 
-                    # Add dropdown for filtering
-                    fig.update_layout(
-                        updatemenus=[
-                            dict(
-                                buttons=buttons,
-                                direction="down",
-                                showactive=True,
-                                x=1.3,
-                                y=1.3
-                            )
-                        ]
-                    )
+            # # Visualizing Top PPS Scores
+            # fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
-                    # Generate HTML for the interactive Plotly chart
-                    plotly_html = fig.to_html(full_html=False, include_plotlyjs="cdn", config={"displayModeBar": True})
+            # sns.barplot(x=pps_sales['ppscore'].head(5), y=pps_sales['x'].head(5), ax=axes[0], palette='Blues_d')
+            # axes[0].set_title('Top 5 PPS Scores for Sales per Customer')
+            # axes[0].set_xlabel('PPS Score')
+            # axes[0].set_ylabel('')
 
-                    # Card Details for Interactive Graph
-                    card_title = f"Interactive Analysis of {varx}"
-                    button1_text = "Analysis"
-                    button2_text = "Recommendations"
-                    button3_text = "Clear"
-                    card_text = f"This interactive chart visualizes the distribution of {varx}. Analyze patterns and trends dynamically."
-                    expln_text = expln
+            # sns.barplot(x=pps_profit['ppscore'].head(5), y=pps_profit['x'].head(5), ax=axes[1], palette='Reds_d')
+            # axes[1].set_title('Top 5 PPS Scores for Benefit per Order')
+            # axes[1].set_xlabel('PPS Score')
+            # axes[1].set_ylabel('')
 
-                    # Use the interactive card function
-                    card_html = generate_card_with_overlay_interactive(
-                        plotly_html,
-                        button1_text,
-                        button2_text,
-                        button3_text,
-                        card_text,
-                        expln_text,
-                        card_title
-                    )
+            # st.pyplot(fig)
 
-                else:
-                    # Numerical Variable: Create a static graph
-                    fig, ax = plt.subplots(figsize=(6, 4))
-                    ax.hist(df[varx], bins=20, color='lightgreen', alpha=0.7)
-                    ax.set_title(f"Distribution of {varx}")
-                    ax.set_xlabel(varx)
-                    ax.set_ylabel("Frequency")
+            # st.info(f"**Predictive Insight for Sales:** The variable with the highest PPS score for predicting Sales per Customer is `{top_sales_pps}` with a score of {pps_sales.iloc[0]['ppscore']:.2f}. This means `{top_sales_pps}` is a strong predictor of sales outcomes, suggesting it should be a key focus in predictive models and strategies.")
 
-                    # Save the static graph to a buffer and encode it as base64
-                    buffer = BytesIO()
-                    fig.savefig(buffer, format='png', bbox_inches='tight')
-                    buffer.seek(0)
-                    image_base64 = base64.b64encode(buffer.read()).decode('utf-8')
-                    plt.close()
+            # st.info(f"**Predictive Insight for Profit:** The variable with the highest PPS score for predicting Benefit per Order is `{top_profit_pps}` with a score of {pps_profit.iloc[0]['ppscore']:.2f}. This highlights `{top_profit_pps}` as a crucial variable in predicting profitability and should be targeted for optimization efforts.")
 
-                    # Card Details for Static Graph
-                    card_title = f"Static Analysis of {varx}"
-                    button1_text = "Analysis"
-                    button2_text = "Recommendations"
-                    button3_text = "Clear"
-                    card_text = f"This static chart visualizes the distribution of {varx}. Analyze patterns and trends at a glance."
-                    expln_text = expln
+            # # Regression Analysis
+            # st.header('3. Regression Analysis')
+            # st.markdown("### Significant Predictors from Regression Analysis")
 
-                    # Use the static card function
-                    card_html = generate_card_with_overlay(
-                        f"data:image/png;base64,{image_base64}",
-                        button1_text,
-                        button2_text,
-                        button3_text,
-                        card_text,
-                        expln_text,
-                        card_title
-                    )
+            # sales_pvalues = model_sales.pvalues[1:]  # excluding the constant
+            # significant_sales_vars = sales_pvalues[sales_pvalues < 0.05].index.tolist()
 
-                return card_html
+            # profit_pvalues = model_profit.pvalues[1:]  # excluding the constant
+            # significant_profit_vars = profit_pvalues[profit_pvalues < 0.05].index.tolist()
 
-            # if st.button("Run Analysis"):
+            # if significant_sales_vars:
+            #     st.subheader('Sales per Customer')
+            #     st.markdown(f"The significant predictors of Sales per Customer in the regression model are: `{', '.join(significant_sales_vars)}`.")
+            #     st.info(f"**Regression Insight for Sales:** The variables `{', '.join(significant_sales_vars)}` are statistically significant predictors of Sales per Customer with p-values less than 0.05. This suggests that these variables have a strong impact on sales and should be considered in sales strategies.")
+            # else:
+            #     st.subheader('Sales per Customer')
+            #     st.markdown('There are no statistically significant predictors of Sales per Customer in the regression model.')
+            #     st.info('**Regression Insight for Sales:** No variables were found to be statistically significant predictors of Sales per Customer. This suggests that other factors, not included in this analysis, may influence sales.')
 
-            # Temporary encoding of categorical variables
-            temp_df = df_filtered_by_cohort.copy()
+            # if significant_profit_vars:
+            #     st.subheader('Benefit per Order')
+            #     st.markdown(f"The significant predictors of Benefit per Order in the regression model are: `{', '.join(significant_profit_vars)}`.")
+            #     st.info(f"**Regression Insight for Profit:** The variables `{', '.join(significant_profit_vars)}` are statistically significant predictors of Benefit per Order with p-values less than 0.05. This indicates these variables have a strong influence on profitability and should be prioritized for improvement to enhance profits.")
+            # else:
+            #     st.subheader('Benefit per Order')
+            #     st.markdown('There are no statistically significant predictors of Benefit per Order in the regression model.')
+            #     st.info('**Regression Insight for Profit:** No variables were found to be statistically significant predictors of Benefit per Order. This implies that other factors, not included in this analysis, may affect profitability.')
 
-            for col in df_filtered_by_cohort.columns:
-                if pd.api.types.is_categorical_dtype(df_filtered_by_cohort[col]) or df_filtered_by_cohort[col].dtype == 'object':
-                    temp_df[col] = temp_df[col].astype('category').cat.codes
-
-            columns_to_drop = [
-                "Cohort",
-                "Name",
-                "Age",
-                "Email",
-                "Contact number",
-                "Enterprise Name",
-                "Enterprise Address",
-                "Name of community or township",
-                "Business model",
-                "Products/services and innovations"
-            ]
-            temp_df = temp_df.drop(columns=columns_to_drop, errors='ignore')
-
-            # User selects a variable
-            selected_variable = st.selectbox("Select a variable for dashboarding:", temp_df.columns)
-
-            # Perform correlation analysis
-            correlations = temp_df.corr()[selected_variable].drop(selected_variable)
-            top_correlated = correlations.abs().sort_values(ascending=False).head(3)
-
-            # Display metric cards for each top correlated variable
-            metriccol1, metriccol2, metriccol3 = st.columns(3)
-            metric_cols = [metriccol1, metriccol2, metriccol3]  # Store the column objects in a list
-
-            for colnum, (var, corr_value) in enumerate(top_correlated.items()):
-                with metric_cols[colnum]:  # Use the column based on the current index
-                    metric_card = create_metric_card(
-                        label=f"Correlation with {var}",
-                        value=f"{corr_value:.2f}",
-                        description=f"Correlation with {selected_variable}"
-                    )
-                    st.markdown(metric_card, unsafe_allow_html=True)
-                    add_vertical_space(3)
-
-            # Use columns for each correlated variable
-            graphcol1, graphcol2, graphcol3 = st.columns(3)
-
-            # Handle the first correlated variable
-            with graphcol1:
-
-                varx = top_correlated.index[0]  # Use the first correlated variable
-
-                expln = f"Recommendations and insights based on the distribution of {varx}."
-
-                # Call the function to generate the card HTML
-                card_html = generate_analysis_card(temp_df, varx, expln)
-
-                # Render the card in Streamlit
-                st.components.v1.html(f'<div id="card_Wrapper">{card_html}</div>', width=1200, height=550)
-
-            # Handle the second correlated variable
-            with graphcol2:
-
-                # var2 = top_correlated.index[1]
-                # fig2, ax2 = plt.subplots()
-                # ax2.scatter(df[selected_variable], df[var2], alpha=0.5)
-                # ax2.set_title(f"{selected_variable} vs {var2}")
-                # ax2.set_xlabel(selected_variable)
-                # ax2.set_ylabel(var2)
-
-                # # Save plot to base64
-                # buffer2 = BytesIO()
-                # fig2.savefig(buffer2, format='png', bbox_inches='tight')
-                # buffer2.seek(0)
-                # image2_base64 = base64.b64encode(buffer2.read()).decode('utf-8')
-                # plt.close()
-
-                # # Display plot using a custom card
-                # card2_html = generate_card_with_overlay(
-                #     image_url=f"data:image/png;base64,{image2_base64}",
-                #     button1_text="Analysis",
-                #     button2_text="Recommendations",
-                #     button3_text="Reset",
-                #     card_text=f"Correlation value: {top_correlated[var2]:.2f}",
-                #     expln_text="Provide recommendations for variable 2.",
-                #     card_title=f"{var2} Correlation"
-                # )
-                # st.markdown(card2_html, unsafe_allow_html=True)
-                
-                varx = top_correlated.index[1]  # Use the second correlated variable
-
-                expln = f"Recommendations and insights based on the distribution of {varx}."
-
-                # Call the function to generate the card HTML
-                card_html = generate_analysis_card(temp_df, varx, expln)
-
-                # Render the card in Streamlit
-                st.components.v1.html(f'<div id="card_Wrapper">{card_html}</div>', width=1200, height=550)
-
-            # Handle the third correlated variable
-            with graphcol3:
-
-                # var3 = top_correlated.index[2]
-                # fig3, ax3 = plt.subplots()
-                # ax3.scatter(df[selected_variable], df[var3], alpha=0.5)
-                # ax3.set_title(f"{selected_variable} vs {var3}")
-                # ax3.set_xlabel(selected_variable)
-                # ax3.set_ylabel(var3)
-
-                # # Save plot to base64
-                # buffer3 = BytesIO()
-                # fig3.savefig(buffer3, format='png', bbox_inches='tight')
-                # buffer3.seek(0)
-                # image3_base64 = base64.b64encode(buffer3.read()).decode('utf-8')
-                # plt.close()
-
-                # # Display plot using a custom card
-                # card3_html = generate_card_with_overlay(
-                #     image_url=f"data:image/png;base64,{image3_base64}",
-                #     button1_text="Analysis",
-                #     button2_text="Recommendations",
-                #     button3_text="Reset",
-                #     card_text=f"Correlation value: {top_correlated[var3]:.2f}",
-                #     expln_text="Provide recommendations for variable 3.",
-                #     card_title=f"{var3} Correlation"
-                # )
-                # st.markdown(card3_html, unsafe_allow_html=True)
-
-                varx = top_correlated.index[2]  # Use the third correlated variable
-
-                expln = f"Recommendations and insights based on the distribution of {varx}."
-
-                # Call the function to generate the card HTML
-                card_html = generate_analysis_card(temp_df, varx, expln)
-
-                # Render the card in Streamlit
-                st.components.v1.html(f'<div id="card_Wrapper">{card_html}</div>', width=1200, height=550)
-            
         with dbrdmap:
 
             # Comprehensive code for all indicators with graphs and metric cards
