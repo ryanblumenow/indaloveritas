@@ -32,7 +32,7 @@ keyboard
 streamlit_antd_components
 st_tabs
 geopy
-folium
+folium==0.19.4
 collections
 fuzzywuzzy
 
