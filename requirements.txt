@@ -5,3 +5,4 @@ streamlit_extras
 streamlit-on-Hover-tabs
 st_clickable_images
 scikit-learn
+dtale
