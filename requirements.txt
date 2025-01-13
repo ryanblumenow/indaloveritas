@@ -33,7 +33,9 @@ streamlit_antd_components
 st_tabs
 # geopy
 # streamlit-folium
-geocoder
-leafmap
+# geocoder
+# leafmap
 collections
 fuzzywuzzy
+requests
+plotly

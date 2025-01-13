@@ -93,6 +93,8 @@ from streamlit_extras.add_vertical_space import add_vertical_space
 import streamlit_antd_components as sac
 from st_click_detector import click_detector
 import plotly.express as px
+import geopandas as gpd
+import requests
 # from geopy.geocoders import Nominatim
 # import folium
 from time import sleep
@@ -5173,39 +5175,68 @@ class indalodashboardshome(HydraHeadApp):
                 'Community': [
                     'Howick Dargle', 'Akasia', 'Bende Mutale Village', 'Kraaibosch', 
                     'Janefurse', 'Groblersdal', 'Springs', 'Mamelodi', 'Vaal River City', 'Bosplaas'
+                ],
+                # Optional: Additional data for hover tooltips
+                'Province': [
+                    'KwaZulu-Natal', 'Gauteng', 'Limpopo', 'Western Cape',
+                    'Limpopo', 'Mpumalanga', 'Gauteng', 'Gauteng', 'Gauteng', 'North West'
+                ],
+                'Socioeconomic_Index': [
+                    0.8, 0.6, 0.4, 0.7, 0.5, 0.55, 0.65, 0.7, 0.6, 0.45
                 ]
             }
-
             df = pd.DataFrame(data)
 
-            # Function to get latitude and longitude using geocoder
-            def get_coordinates(community):
+            # Function to get latitude and longitude using OpenCage API or fallback to predefined data
+            def get_coordinates_opencage(community):
+                api_key = "your-opencage-api-key"  # Replace with your OpenCage API key
                 try:
-                    g = geocoder.osm(community)
-                    if g.ok:
-                        return pd.Series([g.lat, g.lng])
-                    else:
-                        return pd.Series([None, None])
+                    response = requests.get(
+                        f"https://api.opencagedata.com/geocode/v1/json?q={community}&key={api_key}"
+                    )
+                    if response.status_code == 200:
+                        results = response.json()
+                        if results['results']:
+                            geometry = results['results'][0]['geometry']
+                            return pd.Series([geometry['lat'], geometry['lng']])
+                    return pd.Series([None, None])  # No results
                 except Exception as e:
                     print(f"Error retrieving location for {community}: {e}")
                     return pd.Series([None, None])
 
-            # Apply the function to the DataFrame
-            df[['Latitude', 'Longitude']] = df['Community'].apply(get_coordinates)
+            # Uncomment if you have static coordinates for fallback
+            # predefined_coordinates = {
+            #     'Howick Dargle': (-29.5, 30.2),
+            #     'Akasia': (-25.8, 28.1),
+            #     ...
+            # }
 
-            # Sleep between requests to avoid overwhelming the service
-            sleep(1)
+            # Apply the geocoding function
+            df[['Latitude', 'Longitude']] = df['Community'].apply(get_coordinates_opencage)
 
-            # Remove any rows with missing coordinates
+            # Remove rows with missing coordinates
             df = df.dropna(subset=['Latitude', 'Longitude'])
 
-            # Create an interactive map centered around the first community
-            m = leafmap.Map(center=[df['Latitude'].mean(), df['Longitude'].mean()], zoom=6)
+            # Convert DataFrame to GeoDataFrame
+            gdf = gpd.GeoDataFrame(
+                df, geometry=gpd.points_from_xy(df['Longitude'], df['Latitude'])
+            )
 
-            # Add markers for each community
-            for _, row in df.iterrows():
-                m.add_marker(location=[row['Latitude'], row['Longitude']], popup=row['Community'])
+            # Create an interactive Plotly map with hover functionality
+            fig = px.scatter_mapbox(
+                gdf,
+                lat='Latitude',
+                lon='Longitude',
+                hover_name='Community',
+                hover_data={
+                    'Province': True,
+                    'Socioeconomic_Index': True
+                },
+                zoom=5,
+                center={"lat": gdf['Latitude'].mean(), "lon": gdf['Longitude'].mean()},
+                mapbox_style="carto-positron"
+            )
 
-            # Render the map in the Streamlit app
+            # Render the map in Streamlit
             st.title("Community Map")
-            m.to_streamlit(height=3000)
+            st.plotly_chart(fig)
