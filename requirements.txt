@@ -21,7 +21,7 @@ streamlit_quill
 python-pptx
 streamlit-on-Hover-tabs
 streamlit_pandas_profiling
-ydata_profiling
+ydata_profiling==4.6.5
 # bioinfokit
 mitosheet==4.6.5
 pygwalker==3.10.0
