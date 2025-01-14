@@ -1,4 +1,4 @@
-from apps.home_app import HomeApp
+# from apps.home_app import HomeApp
 from apps.login_app import LoginApp
 from apps.cheat_app import CheatApp
 from apps.myloading_app import MyLoadingApp
