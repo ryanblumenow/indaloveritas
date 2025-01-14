@@ -100,5 +100,11 @@ class LoginApp():
 
         if login_data['username'] == 'Ryan' and login_data['password'] == 'ryan123':
             return 1
+        elif if login_data['username'] == 'Rest' and login_data['password'] == 'rest123':
+            return 1
+        elif if login_data['username'] == 'Vivian' and login_data['password'] == 'vivian123':
+            return 1
+        elif if login_data['username'] == 'Kabelo' and login_data['password'] == 'kabelo123':
+            return 1
         else:
             return 0
