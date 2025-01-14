@@ -319,7 +319,7 @@ def indalohome():
             bullet_bar_html += f"""
             <div style="display: flex; align-items: center; border: 1px solid #ccc; margin: 50px 0; padding: 10px; background-color: {bar['color']}; border-radius: 5px;">
                 <img src="{bar['image_url']}" style="width: 40px; height: 40px; margin-right: 10px; border-radius: 5px;">
-                <span style="font-size: 18px; font-weight: normal; font-family: "Arial";">{bar['text']}</span>
+                <span style="font-size: 18px; font-weight: normal; font-family: "Roboto";">{bar['text']}</span>
             </div>
             """
         bullet_bar_html += "</div>"
