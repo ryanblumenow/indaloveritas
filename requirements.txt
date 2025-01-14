@@ -13,3 +13,4 @@ streamlit_pandas_profiling
 tabulate
 streamlit_antd_components
 pygwalker
+st_tabs
