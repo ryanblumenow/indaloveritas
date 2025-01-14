@@ -10,3 +10,4 @@ st_click_detector
 streamlit_quill
 ydata_profiling
 streamlit_pandas_profiling
+tabulate
