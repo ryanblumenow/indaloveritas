@@ -8,4 +8,3 @@ scikit-learn
 dtale
 st_click_detector
 streamlit_quill
-keyboard
