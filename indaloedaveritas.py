@@ -197,10 +197,10 @@ def indaloeda():
 
                 st_profile_report(pr)
 
-        startup(data_id="1", data=df_consolidated.sample(15000)) # All records, no OHE
+        startup(data_id="1", data=df_consolidated) # All records, no OHE
 
         if get_instance("1") is None:
-            startup(data_id="1", data=df_consolidated.sample(15000))
+            startup(data_id="1", data=df_consolidated)
 
         d=get_instance("1")
 
