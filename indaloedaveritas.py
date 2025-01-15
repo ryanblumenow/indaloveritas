@@ -214,25 +214,25 @@ def indaloeda():
         from mitosheet.streamlit.v1 import spreadsheet
         spreadsheet(df_consolidated)
 
-        # d = dtale.show(pd.DataFrame(df2.sample(1000)))
-        st.session_state.corr_img = d.get_corr_matrix()
-        st.session_state.corr_df = d.get_corr_matrix(as_df=True)
-        st.session_state.pps_img = d.get_pps_matrix()
-        st.session_state.pps_df = d.get_pps_matrix(as_df=True)
+        # # d = dtale.show(pd.DataFrame(df2.sample(1000)))
+        # st.session_state.corr_img = d.get_corr_matrix()
+        # st.session_state.corr_df = d.get_corr_matrix(as_df=True)
+        # st.session_state.pps_img = d.get_pps_matrix()
+        # st.session_state.pps_df = d.get_pps_matrix(as_df=True)
 
-        print(st.session_state.corr_df)
+        # print(st.session_state.corr_df)
 
-        checkbtn = st.button("Validate data")
+        # checkbtn = st.button("Validate data")
 
-        if checkbtn == True:
-            df_amended = get_instance(data_id="1").data # The amended dataframe ready for upsert
-            st.write("Sample of amended data:")
-            st.write("")
-            st.write(df_amended.head(5))
+        # if checkbtn == True:
+        #     df_amended = get_instance(data_id="1").data # The amended dataframe ready for upsert
+        #     st.write("Sample of amended data:")
+        #     st.write("")
+        #     st.write(df_amended.head(5))
 
-        clearchanges = st.button("Clear changes made to data")
-        if clearchanges == True:
-            global_state.cleanup()
+        # clearchanges = st.button("Clear changes made to data")
+        # if clearchanges == True:
+        #     global_state.cleanup()
 
         st.write("")
         
