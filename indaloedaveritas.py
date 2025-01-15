@@ -237,10 +237,10 @@ def indaloeda():
         st.write("")
         
         st.subheader("Notes on EDA")
-
+        
         # Spawn a new Quill editor
         st.subheader("Notes on exploratory data analysis")
-        edacontent = st_quill(placeholder="Write your notes here", value=st.session_state.edanotes, key="edaquill")
+        edacontent = st_quill(placeholder="Write your notes here", key="edaquill")
 
         st.session_state.edanotes = edacontent
 
