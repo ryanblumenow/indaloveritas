@@ -197,19 +197,19 @@ def indaloeda():
 
                 st_profile_report(pr)
 
-        startup(data_id="1", data=df_consolidated) # All records, no OHE
+        # startup(data_id="1", data=df_consolidated) # All records, no OHE
 
-        if get_instance("1") is None:
-            startup(data_id="1", data=df_consolidated)
+        # if get_instance("1") is None:
+        #     startup(data_id="1", data=df_consolidated)
 
-        d=get_instance("1")
+        # d=get_instance("1")
 
-        # webbrowser.open_new_tab('http://localhost:8501/dtale/main/1') # New window/tab
-        # components.html("<iframe src='/dtale/main/1' />", width=1000, height=300, scrolling=True) # Element
-        html = f"""<iframe src="/dtale/main/1" height="1000" width="1400"></iframe>""" # Iframe
-        # html = "<a href='/dtale/main/1' target='_blank'>Dataframe 1</a>" # New tab link
+        # # webbrowser.open_new_tab('http://localhost:8501/dtale/main/1') # New window/tab
+        # # components.html("<iframe src='/dtale/main/1' />", width=1000, height=300, scrolling=True) # Element
+        # html = f"""<iframe src="/dtale/main/1" height="1000" width="1400"></iframe>""" # Iframe
+        # # html = "<a href='/dtale/main/1' target='_blank'>Dataframe 1</a>" # New tab link
 
-        st.markdown(html, unsafe_allow_html=True)
+        # st.markdown(html, unsafe_allow_html=True)
 
         from mitosheet.streamlit.v1 import spreadsheet
         spreadsheet(df_consolidated)

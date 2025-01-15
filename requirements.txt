@@ -16,3 +16,4 @@ pygwalker
 st_tabs
 geopy
 folium
+mitosheet
