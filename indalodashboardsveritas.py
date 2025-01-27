@@ -4514,7 +4514,8 @@ def indalodashboards():
         # df.dropna(thresh=int(threshold * len(df)), axis=1, inplace=True)
 
         # Fill remaining NaN values with the median of the column
-        df_filtered_by_cohort.fillna(df_filtered_by_cohort.median(), inplace=True)
+        # Fill missing values only for numeric columns
+        df_filtered_by_cohort.fillna(df_filtered_by_cohort.select_dtypes(include=['number']).median(), inplace=True)
 
         # Step 2: Correlation Analysis by chosen cohort
         correlation_matrix = df_filtered_by_cohort.corr()
