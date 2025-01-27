@@ -4518,7 +4518,10 @@ def indalodashboards():
         df_filtered_by_cohort.fillna(df_filtered_by_cohort.select_dtypes(include=['number']).median(), inplace=True)
 
         # Step 2: Correlation Analysis by chosen cohort
-        correlation_matrix = df_filtered_by_cohort.corr()
+        # Select only numeric columns before calculating correlation
+        numeric_cols = df_filtered_by_cohort.select_dtypes(include=['number'])
+        correlation_matrix = numeric_cols.corr()
+
         st.header("Correlation matrix")
         st.write(correlation_matrix)
         
