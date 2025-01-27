@@ -19,3 +19,5 @@ folium
 mitosheet
 fuzzywuzzy
 keyboard
+numpy
+pandas
