@@ -4797,7 +4797,7 @@ def indalodashboards():
             border_size_px: int = 1,
             border_color: str = "#CCC",
             border_radius_px: int = 5,
-            border_left_color: str = "#ffcc66",
+            border_left_color: str = "maroon",
             box_shadow: bool = True,
         ):
             box_shadow_str = (
