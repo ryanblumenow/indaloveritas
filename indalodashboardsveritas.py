@@ -4483,7 +4483,7 @@ def indalodashboards():
 
         # Convert all columns to appropriate types
         for col in df_tableau.columns:
-            if df_tableau[col].dtype == np.object:
+            if df_tableau[col].dtype == object:
                 df_tableau[col] = df_tableau[col].astype(str)
 
         # Establish communication between pygwalker and Streamlit
