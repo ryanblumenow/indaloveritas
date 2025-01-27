@@ -1658,7 +1658,7 @@ def indalodashboards():
             card_text3 = "This interactive chart shows the employee distribution across categories, including permanent/temporary, gender, youth, volunteers, and people with disabilities."
             expln_text3 = "Dynamically analyze workforce demographics to make informed decisions."
 
-            accesstomarket = generate_card_with_overlay_interactive(
+            empdist = generate_card_with_overlay_interactive(
                 plotly_html,
                 button1_text3,
                 button2_text3,
@@ -1671,7 +1671,7 @@ def indalodashboards():
 
             # Render the graph card in Streamlit
             with colecon1:
-                st.components.v1.html(f'<div id="card2_Wrapper">{accesstomarket}</div>', width=1200, height=550)
+                st.components.v1.html(f'<div id="card2_Wrapper">{empdist}</div>', width=1200, height=550)
 
             # # Render the graph card
             # with colecon2:
@@ -2840,77 +2840,104 @@ def indalodashboards():
                     return value  # Keep numeric values as-is
                 elif isinstance(value, str):
                     match = re.search(r"\d+", value)  # Extract numeric content from the string
-                    return float(match.group()) if match else "Missing"  # Convert to float if numeric content exists
+                    return float(match.group()) if match else None  # Convert to float if numeric content exists
                 else:
-                    return "Missing"  # Non-numeric and non-string values are treated as "Missing"
+                    return None  # Non-numeric and non-string values are treated as None
 
             df_filtered_by_cohort['Water (litres) saved'] = df_filtered_by_cohort['Water (litres) saved'].apply(extract_numeric)
+            df_filtered_by_cohort['Water (litres) saved'].fillna(0, inplace=True)  # Treat missing values as zero for categorization
 
-            # Replace any "Missing" labels for consistency
-            df_filtered_by_cohort['Water (litres) saved'] = df_filtered_by_cohort['Water (litres) saved'].replace("Missing", pd.NA)
+            # Define categories for water saved
+            bins = [0, 100, 500, 1000, 5000, 10000, float('inf')]
+            labels = ['<100', '100-500', '500-1000', '1000-5000', '5000-10000', '>10000']
 
-            # Count occurrences of each unique value, including missing responses
-            water_saved_counts = round(df_filtered_by_cohort['Water (litres) saved'].value_counts(dropna=False))
+            # Categorize values into bins
+            df_filtered_by_cohort['Water Saved Category'] = pd.cut(df_filtered_by_cohort['Water (litres) saved'], bins=bins, labels=labels, right=False)
 
-            # Sort the counts for numeric values first, then "Missing"
-            if pd.NA in water_saved_counts:
-                missing_count = water_saved_counts.pop(pd.NA)
-                water_saved_counts = water_saved_counts.sort_index()  # Sort numeric values
-                # water_saved_counts = water_saved_counts.append(pd.Series({"Missing": missing_count}))  # Add "Missing" back
-                water_saved_counts = pd.concat([water_saved_counts, pd.Series({"Missing": missing_count})]) # Add "Missing" back
+            # Grouping data to count occurrences and collect enterprise names
+            water_saved_data = df_filtered_by_cohort.groupby('Water Saved Category')['Enterprise Name'].apply(list).reset_index()
+            water_saved_data['Count'] = water_saved_data['Enterprise Name'].apply(len)
 
-            else:
-                water_saved_counts = water_saved_counts.sort_index()
+            # Convert enterprise names into a readable format for hover
+            water_saved_data['Enterprise Name'] = water_saved_data['Enterprise Name'].apply(lambda x: ', '.join(x))
 
-            # Create a bar chart
-            plt.figure(figsize=(10, 6))
-            bars = plt.bar(
-                water_saved_counts.index.astype(str),  # Categories (convert to string for consistent labels)
-                water_saved_counts.values,  # Counts
-                color=plt.cm.tab20.colors
+            # Create the Plotly bar chart
+            fig = px.bar(
+                water_saved_data,
+                x='Water Saved Category',
+                y='Count',
+                labels={'Count': 'Number of Enterprises', 'Water Saved Category': 'Water Saved Category'},
+                text='Count',
+                hover_data=['Enterprise Name'],
             )
 
-            # # Add labels to each bar
-            # for bar in bars:
-            #     plt.text(
-            #         bar.get_x() + bar.get_width() / 2,
-            #         bar.get_height() + 1,
-            #         f"{bar.get_height()}",
-            #         ha='center',
-            #         va='bottom'
-            #     )
+            # Fix bar width and adjust axes
+            fig.update_traces(
+                marker_color='skyblue',  # Set a better contrasting color
+                width=0.6  # Increase bar width to make them more visible
+            )
 
-            # Add titles and labels
-            plt.title("Water Saved Distribution", fontsize=14)
-            plt.xlabel("Water Saved (Litres or Missing)", fontsize=12)
-            plt.ylabel("Number of Enterprises", fontsize=12)
-            # plt.xticks(rotation=45, ha="right")  # Rotate category labels for readability
-            plt.xticks(ticks=range(len(water_saved_counts.index)), labels=[str(int(x)) if isinstance(x, (int, float)) and not pd.isna(x) else str(x) for x in water_saved_counts.index], rotation=45, ha="right")
-            plt.tight_layout()
+            # Adjust layout exactly like the working example
+            fig.update_layout(
+                xaxis=dict(
+                    title="Water Saved Category",
+                    tickangle=45,
+                    tickfont=dict(size=12),
+                    categoryorder='category ascending'  # Ensure categories appear in order
+                ),
+                yaxis=dict(
+                    title="Number of Enterprises",
+                    range=[0, water_saved_data['Count'].max() + 2],  # Add buffer to y-axis
+                    tickformat='d'  # Show integer tick values
+                ),
+                margin=dict(l=40, r=40, t=50, b=80),  # Adjust margins for better readability
+                width=375,  # Ensure it fits well inside the card
+                height=275
+            )
 
-            # Save the plot as base64
-            water_saved_chart = save_plot_to_base64(plt)
+            # Add dropdown filters like the working example
+            fig.update_layout(updatemenus=[
+                dict(
+                    buttons=[
+                        dict(args=[{"y": [water_saved_data['Count']]}], label="All Categories", method="update"),
+                        *[
+                            dict(
+                                args=[{"y": [water_saved_data.loc[water_saved_data['Water Saved Category'] == category, 'Count']]}],
+                                label=category,
+                                method="update"
+                            ) for category in labels
+                        ]
+                    ],
+                    direction="down",
+                    showactive=True,
+                    x=1.3,  # Center dropdown below the graph
+                    y=1.3   # Move dropdown below the graph
+                )
+            ])
 
-            # Generate the graph card
-            image_url_water = water_saved_chart
+            # Convert the chart to HTML
+            plotly_html = fig.to_html(full_html=False, include_plotlyjs="cdn", config={"displayModeBar": True})
+
+            # Define the card details
             card_title_water = "Water Saved"
             button1_text_water = "Analysis"
             button2_text_water = "Recommendations"
             button3_text_water = "Clear"
-            card_text_water = "This chart shows the distribution of water saved (in litres) by enterprises, including missing values."
-            expln_text_water = "Analyzing water savings helps assess sustainability efforts and resource management."
+            card_text_water = "This chart shows the distribution of water saved by enterprises in categorized ranges."
+            expln_text_water = "Understanding water savings helps businesses evaluate their sustainability impact."
 
-            html_code_water = generate_card_with_overlay(
-                image_url_water, 
-                button1_text_water, 
-                button2_text_water, 
-                button3_text_water, 
-                card_text_water, 
-                expln_text_water, 
+            # Use your card function
+            html_code_water = generate_card_with_overlay_interactive(
+                plotly_html,
+                button1_text_water,
+                button2_text_water,
+                button3_text_water,
+                card_text_water,
+                expln_text_water,
                 card_title_water
             )
 
-            # Render the graph card in Streamlit
+            # Render the chart in Streamlit
             with colenv2:
                 st.components.v1.html(f'<div id="card8_Wrapper">{html_code_water}</div>', width=1200, height=550)
 
