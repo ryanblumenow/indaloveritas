@@ -680,43 +680,125 @@ def indalodashboards():
 
             colgen1, colgen2, colgen3 = st.columns(3)
 
-            # 1. Gender Distribution by Age Graph
-            plt.figure(figsize=(6,4))
-            df_filtered_by_cohort.groupby('Gender')['Age'].mean().plot(kind='bar', color=['#207DCE', '#3182A8'])
-            plt.title('Gender Distribution by Age')
-            plt.xlabel('Gender')
-            plt.ylabel('Average Age')
-            plt.xticks(rotation=0)
+            # # 1. Gender Distribution by Age Graph
+            # plt.figure(figsize=(6,4))
+            # df_filtered_by_cohort.groupby('Gender')['Age'].mean().plot(kind='bar', color=['#207DCE', '#3182A8'])
+            # plt.title('Gender Distribution by Age')
+            # plt.xlabel('Gender')
+            # plt.ylabel('Average Age')
+            # plt.xticks(rotation=0)
 
-            # Save the plot to buffer and encode it as base64
-            buffer3 = BytesIO()
-            plt.savefig(buffer3, format='png', bbox_inches='tight')
-            buffer3.seek(0)
-            data3 = base64.b64encode(buffer3.read()).decode('utf-8')
-            data3 = 'data:image/png;base64,' + data3
+            # # Save the plot to buffer and encode it as base64
+            # buffer3 = BytesIO()
+            # plt.savefig(buffer3, format='png', bbox_inches='tight')
+            # buffer3.seek(0)
+            # data3 = base64.b64encode(buffer3.read()).decode('utf-8')
+            # data3 = 'data:image/png;base64,' + data3
 
-            # Generate the graph card
-            image_url1 = data3
-            card_title1 = "Gender Distribution by Age"
-            button1_text1 = "Analysis"
-            button2_text1 = "Recommendations"
-            button3_text1 = "Clear"
-            card_text1 = "Clients are generally younger and male with the ratio of females decreasing with age."
-            expln_text1 = "We recommend you offer products with aggressive risk ratios."
+            # # Generate the graph card
+            # image_url1 = data3
+            # card_title1 = "Gender Distribution by Age"
+            # button1_text1 = "Analysis"
+            # button2_text1 = "Recommendations"
+            # button3_text1 = "Clear"
+            # card_text1 = "Clients are generally younger and male with the ratio of females decreasing with age."
+            # expln_text1 = "We recommend you offer products with aggressive risk ratios."
 
-            html_code1 = generate_card_with_overlay(
-                image_url1, 
-                button1_text1, 
-                button2_text1, 
-                button3_text1, 
-                card_text1, 
-                expln_text1, 
-                card_title1
+            # html_code1 = generate_card_with_overlay(
+            #     image_url1, 
+            #     button1_text1, 
+            #     button2_text1, 
+            #     button3_text1, 
+            #     card_text1, 
+            #     expln_text1, 
+            #     card_title1
+            # )
+
+            # # Render the graph card
+            # with colgen1:
+            #     st.components.v1.html(f'<div id="card1_Wrapper">{html_code1}</div>', width=1200, height=550)
+
+            # Clean 'Enterprise Name' and 'Gender' columns
+            df_filtered_by_cohort['Enterprise Name'] = df_filtered_by_cohort['Enterprise Name'].str.strip().replace('', 'No Data Available')
+            df_filtered_by_cohort['Enterprise Name'] = df_filtered_by_cohort['Enterprise Name'].str.replace(r"[^\w\s,]", "", regex=True)
+            df_filtered_by_cohort['Gender'] = df_filtered_by_cohort['Gender'].str.title().str.strip()
+            df_filtered_by_cohort['Enterprise Name'] = df_filtered_by_cohort['Enterprise Name'].str.replace(r"[^\w\s,]", "", regex=True)
+
+            # Group data by gender and aggregate
+            gender_age_data = df_filtered_by_cohort.groupby('Gender').agg({
+                'Age': 'mean',
+                'Enterprise Name': lambda x: ', '.join(x) if len(x) > 0 else 'No Data Available'
+            }).reset_index()
+            gender_age_data['Enterprise Name'] = gender_age_data['Enterprise Name'].astype(str)
+
+            # Count enterprises per gender
+            gender_age_data['Count'] = df_filtered_by_cohort.groupby('Gender')['Enterprise Name'].count().values
+
+            # Wrap enterprise names to improve hover readability
+            gender_age_data['Enterprise Name'] = gender_age_data['Enterprise Name'].apply(lambda x: '<br>'.join(x.split(', ')))
+
+            # Create the interactive Plotly chart
+            fig = px.bar(
+                gender_age_data,
+                x='Gender',
+                y='Age',
+                labels={'Age': 'Average Age', 'Gender': 'Gender'},
+                text='Count',
+                hover_data={'Enterprise Name': True, 'Count': True}
             )
 
-            # Render the graph card
+            # Customize appearance
+            fig.update_traces(
+                marker_color=['#207DCE', '#3182A8'],
+                textposition='outside',
+                width=0.6
+            )
+
+            fig.update_layout(
+                title=dict(
+                    text="Gender Distribution by Age",
+                    font=dict(size=14),
+                    y=0.9,
+                    x=0.5,
+                    xanchor='center',
+                    yanchor='top'
+                ),
+                xaxis=dict(title="Gender"),
+                yaxis=dict(
+                    title="Average Age",
+                    range=[0, gender_age_data['Age'].max() + 2],
+                    tickformat='.1f'
+                ),
+                margin=dict(l=50, r=40, t=50, b=80),
+                width=375,
+                height=275
+            )
+
+            # Convert to HTML for Streamlit
+            plotly_html = fig.to_html(full_html=False, include_plotlyjs="cdn", config={"displayModeBar": True})
+
+            # Define card details
+            card_title_gender = "Gender Distribution by Age"
+            button1_text_gender = "Analysis"
+            button2_text_gender = "Recommendations"
+            button3_text_gender = "Clear"
+            card_text_gender = "Clients are generally younger and male, with the ratio of females decreasing with age."
+            expln_text_gender = "We recommend offering products with aggressive risk ratios."
+
+            # Generate the card with interactive overlay
+            html_code_gender = generate_card_with_overlay_interactive(
+                plotly_html,
+                button1_text_gender,
+                button2_text_gender,
+                button3_text_gender,
+                card_text_gender,
+                expln_text_gender,
+                card_title_gender
+            )
+
+            # Render in Streamlit
             with colgen1:
-                st.components.v1.html(f'<div id="card1_Wrapper">{html_code1}</div>', width=1200, height=550)
+                st.components.v1.html(f'<div id="card1_Wrapper">{html_code_gender}</div>', width=1200, height=550)
 
             # 2. Revenue vs Profit Graph
             plt.figure(figsize=(6,4))
@@ -2860,6 +2942,8 @@ def indalodashboards():
 
             # Convert enterprise names into a readable format for hover
             water_saved_data['Enterprise Name'] = water_saved_data['Enterprise Name'].apply(lambda x: ', '.join(x))
+            # Wrap enterprise names to improve hover readability
+            water_saved_data['Enterprise Name'] = water_saved_data['Enterprise Name'].apply(lambda x: '<br>'.join(x.split(', ')))
 
             # Create the Plotly bar chart
             fig = px.bar(
